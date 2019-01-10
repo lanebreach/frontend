@@ -1,0 +1,19 @@
+
+version: '3'
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: dev.Dockerfile
+    image: lane_breach
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+      - "9229:9229"
+    volumes:
+      - .:/usr/src/app/
+      - /usr/src/app/node_modules
+    env_file:
+      - .env
+    command: [sh, -c, "cd /usr/src/app && yarn dev"]
