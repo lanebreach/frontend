@@ -5,9 +5,13 @@ lane-breach application.
 
 ## Installation
 
+[Install docker](https://www.docker.com/get-started) if not already installed.
+
 ```bash
 git clone https://github.com/lanebreach/frontend.git
 cd frontend/
-npm i
-yarn dev
+yarn
+yarn dc:refresh
 ```
+
+The app is now running on `localhost:5000`
