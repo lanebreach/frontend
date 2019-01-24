@@ -3,11 +3,15 @@ import ReactDOM from "react-dom";
 import IncidentPopup from "./IncidentPopup";
 
 export default class Map extends React.Component {
-  constructor(props) {
-    super(props);
-    this.addPopup = this.addPopup.bind(this);
-  }
   componentDidMount() {
+    this.initializeMap()
+  }
+
+  componentWillUnmount() {
+    this.map.remove();
+  }
+
+  initializeMap(){
     mapboxgl.accessToken =
       "pk.eyJ1IjoiYWdhZXNzZXIiLCJhIjoiY2pvZGY5bmh4MWJtcTNsbWtmN2RmNnhiNCJ9.iwOotv1u0S92o-Vj2CCjag";
 
@@ -33,10 +37,6 @@ export default class Map extends React.Component {
     this.map.on("click", "bike-lane-reports-point", e =>
       this.addPopup(e.features[0]),
     );
-  }
-
-  componentWillUnmount() {
-    this.map.remove();
   }
 
   addPopup(incident) {
