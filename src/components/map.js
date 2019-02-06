@@ -3,6 +3,12 @@ import ReactDOM from "react-dom";
 import IncidentPopup from "./IncidentPopup";
 
 const kMapId = 'mapbox-map';
+const kMinZoom = 11;
+
+const kMaxBounds = new mapboxgl.LngLatBounds(
+  new mapboxgl.LngLat(-122.63, 37.65),
+  new mapboxgl.LngLat(-122.28, 37.9)
+);
 
 export default class Map extends React.Component {
   componentDidMount() {
@@ -21,7 +27,9 @@ export default class Map extends React.Component {
       container: kMapId,
       style: "mapbox://styles/agaesser/cjn5lb26b0gty2rnr3laj0ljd", // stylesheet location
       center: [-122.450577, 37.759108], // starting position [lng, lat]
-      zoom: 12, // starting zoom
+      zoom: kMinZoom, // Start all the way zoomed out.
+      minZoom: kMinZoom,
+      maxBounds: kMaxBounds
     });
 
     this.map.on(
