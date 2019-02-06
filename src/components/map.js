@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import IncidentPopup from "./IncidentPopup";
 
+const kMapId = 'mapbox-map';
+
 export default class Map extends React.Component {
   componentDidMount() {
     this.initializeMap()
@@ -16,7 +18,7 @@ export default class Map extends React.Component {
       "pk.eyJ1IjoiYWdhZXNzZXIiLCJhIjoiY2pvZGY5bmh4MWJtcTNsbWtmN2RmNnhiNCJ9.iwOotv1u0S92o-Vj2CCjag";
 
     this.map = new mapboxgl.Map({
-      container: this.mapContainer,
+      container: kMapId,
       style: "mapbox://styles/agaesser/cjn5lb26b0gty2rnr3laj0ljd", // stylesheet location
       center: [-122.450577, 37.759108], // starting position [lng, lat]
       zoom: 12, // starting zoom
@@ -59,6 +61,6 @@ export default class Map extends React.Component {
       width: "100%",
     };
 
-    return <div style={style} ref={el => (this.mapContainer = el)} />;
+    return <div style={style} id={kMapId} />;
   }
 }
