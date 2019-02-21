@@ -32,8 +32,6 @@ function geoJSONFromBikeData(data) {
     result.features.push(feature)
   }
 
-  console.log(result);
-
   return result;
 };
 
@@ -71,37 +69,68 @@ export default class Map extends React.Component {
 
     this.map = new mapboxgl.Map({
       container: kMapId,
-      // stylesheet location
       style: "mapbox://styles/agaesser/cjn5lb26b0gty2rnr3laj0ljd",
 
       // starting position [lng, lat]
       center: [-122.450577, 37.759108],
 
-      // Start all the way zoomed out.
       zoom: kMinZoom,
       minZoom: kMinZoom,
       maxBounds: kMaxBounds
     });
 
     this.map.on("load", () => {
-      this.map.addLayer({
+      var map_style = this.map.getStyle();
+      map_style.sources.sf311 = {
+        "type": "geojson",
+        "data": geoJSONFromBikeData(bike_lane_data)
+      };
+
+      // Uncomment to make data underneath other data.
+      // map_style.layers.unshift({
+
+      map_style.layers.push({
         "id": "points",
-        "type": "symbol",
-        "source": {
-          "type": "geojson",
-          "data": geoJSONFromBikeData(bike_lane_data)
-        },
-        "layout": {
-          "icon-image": "{icon}-15",
-          "text-field": "{title}",
-          "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-          "text-offset": [0, 0.6],
-          "text-anchor": "top",
-        },
+        "type": "heatmap",
+        "source": "sf311",
         "paint": {
-          "text-color": ['get', 'color']
+          "heatmap-radius": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            0, 2,
+            9, 6
+          ],
         }
       });
+
+      var old_layers = map_style.layers;
+      var new_layers = [];
+      for (var i = 0; i < old_layers.length; ++i) {
+        console.log(old_layers[i].id);
+        if (old_layers[i].id == "bike-lane-reports-point") {
+          continue;
+        }
+
+        if (old_layers[i].id == "bike-lane-reports-heat") {
+          continue;
+        }
+
+        if (old_layers[i].id == "bike-injdeath-with-coords") {
+          continue;
+        }
+
+        if (old_layers[i].id == "bike-injdeath-derived") {
+          continue;
+        }
+
+        new_layers.push(old_layers[i]);
+      }
+      console.log(old_layers.length)
+      console.log(new_layers.length)
+      map_style.layers = new_layers;
+
+      this.map.setStyle(map_style);
     });
 
     this.map.on(
