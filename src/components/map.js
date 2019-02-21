@@ -100,7 +100,7 @@ export default class Map extends React.Component {
             ["zoom"],
             0, 2,
             9, 6
-          ],
+          ], 
         }
       });
 
