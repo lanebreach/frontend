@@ -10,6 +10,7 @@ module.exports = {
   mode: "development",
   node: { fs: "empty" },
   module: {
+    noParse: /(mapbox-gl)\.js$/,
     rules: [
       {
         test: /\.jsx?$/,

@@ -10,6 +10,7 @@ const compiler = webpack({
   name: "server",
   mode: "development",
   module: {
+    noParse: /(mapbox-gl)\.js$/,
     rules: [
       { test: /\.js$/, exclude: /node_modules/, use: "happypack/loader" },
     ],

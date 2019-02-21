@@ -16,6 +16,7 @@ module.exports = {
     filename: "bundle-backend.js",
   },
   module: {
+    noParse: /(mapbox-gl)\.js$/,
     rules: [{ test: /\.js$/, exclude: /node_modules/, use: "babel-loader" }],
   },
   plugins: [
