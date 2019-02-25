@@ -76,6 +76,7 @@ export class Gallery extends React.Component {
             </ul>
           </div>
           <div style={{width: 800}}>
+            <h2>{this.state.currentChart}</h2>
             <CurrentChart data={this.state.data} />
           </div>
         </div>
