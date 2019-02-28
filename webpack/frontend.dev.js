@@ -51,7 +51,7 @@ module.exports = {
     port: PORTS.APP,
     proxy: [
       {
-        context: ["/favicon.png"],
+        context: ["/favicon.png", "/api"],
         target: `http://localhost:${PORTS.SERVER}`,
       },
     ],

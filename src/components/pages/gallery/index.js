@@ -16,7 +16,6 @@ const fetchData = (cb) => {
     url += sep + url_filters[i][0] + '=' + url_filters[i][1];
   }
   
-  console.log(url);
   return fetch(url)
     .then(results => {
       return results.json();
