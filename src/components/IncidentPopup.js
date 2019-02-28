@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import Moment from 'react-moment';
 
 
-const Heading = styled.div`
-  background-color: blue;
-`;
+const Heading = styled.div``;
 
 const Time = styled.div``;
 
