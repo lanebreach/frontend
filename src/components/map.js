@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import IncidentPopup from "./IncidentPopup";
+import axios from "axios"
 
 const kMapId = 'mapbox-map';
 const kMinZoom = 11;
@@ -10,31 +11,6 @@ const kMaxBounds = new mapboxgl.LngLatBounds(
   new mapboxgl.LngLat(-122.28, 37.9)
 );
 
-function geoJSONFromBikeData(data) {
-  var result = {
-    "type": "FeatureCollection",
-    "features": []
-  };
-
-  for (var i = 0; i < data.length; ++i) {
-    var feature = {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [data[i].point.longitude, data[i].point.latitude]
-      },
-      "properties": {
-        "title": "Point" + i,
-        "icon": "harbor",
-        "color": "#FFFFFF"
-      }
-    };
-    result.features.push(feature)
-  }
-
-  return result;
-};
-
 export default class Map extends React.Component {
   constructor () {
     super();
@@ -43,47 +19,57 @@ export default class Map extends React.Component {
     };
   }
   
-  componentDidMount() {
-    const base_url = 'https://data.sfgov.org/resource/ihm3-5gmc.json'
-    const url_filters = [['service_subtype', 'Blocking_Bicycle_Lane']]
-
-    var url = base_url;
-    for (var i = 0; i < url_filters.length; i++) {
-      var sep = '&';
-      if (i == 0) { sep = '?' }
-      url += sep + url_filters[i][0] + '=' + url_filters[i][1];
-    }
-    
-    fetch(url).then(results => { return results.json() }).then(data => {
-      this.initializeMap(data)
-    });
+  componentDidMount = async () => {
+    // fetch the data from a local api to avoid CORS
+    const { data: bikeLaneReports } = await axios.get("/api/reports")
+    await this.setState({bike_lane_reports: bikeLaneReports})
+    this.initializeMap();
   }
 
   componentWillUnmount() {
     this.map.remove();
   }
 
-  initializeMap(bike_lane_data) {
+  initializeMap() {
     mapboxgl.accessToken =
       "pk.eyJ1IjoiYWdhZXNzZXIiLCJhIjoiY2pvZGY5bmh4MWJtcTNsbWtmN2RmNnhiNCJ9.iwOotv1u0S92o-Vj2CCjag";
 
     this.map = new mapboxgl.Map({
       container: kMapId,
       style: "mapbox://styles/agaesser/cjn5lb26b0gty2rnr3laj0ljd",
-
-      // starting position [lng, lat]
-      center: [-122.450577, 37.759108],
-
+      center: [-122.450577, 37.759108], // starting position [lng, lat]
       zoom: kMinZoom,
       minZoom: kMinZoom,
       maxBounds: kMaxBounds
     });
 
     this.map.on("load", () => {
-      var map_style = this.map.getStyle();
+      const map_style = this.buildMapStyle();
+      this.map.setStyle(map_style);
+    });
+
+    this.map.on(
+      "mouseenter",
+      "bike-lane-reports-point",
+      () => this.map.getCanvas().style.cursor = "pointer"
+    );
+
+    this.map.on(
+      "mouseleave",
+      "bike-lane-reports-point",
+      () => (this.map.getCanvas().style.cursor = ""),
+    );
+
+    this.map.on("click", "bike-lane-reports-point", e =>
+      this.addPopup(e.features[0]),
+    );
+  }
+
+  buildMapStyle(){
+    var map_style = this.map.getStyle();
       map_style.sources.sf311 = {
         "type": "geojson",
-        "data": geoJSONFromBikeData(bike_lane_data)
+        "data": this.state.bike_lane_reports
       };
 
       // Uncomment to make data underneath other data.
@@ -103,53 +89,16 @@ export default class Map extends React.Component {
           ], 
         }
       });
-
-      var old_layers = map_style.layers;
-      var new_layers = [];
-      for (var i = 0; i < old_layers.length; ++i) {
-        console.log(old_layers[i].id);
-        if (old_layers[i].id == "bike-lane-reports-point") {
-          continue;
-        }
-
-        if (old_layers[i].id == "bike-lane-reports-heat") {
-          continue;
-        }
-
-        if (old_layers[i].id == "bike-injdeath-with-coords") {
-          continue;
-        }
-
-        if (old_layers[i].id == "bike-injdeath-derived") {
-          continue;
-        }
-
-        new_layers.push(old_layers[i]);
-      }
-      console.log(old_layers.length)
-      console.log(new_layers.length)
-      map_style.layers = new_layers;
-
-      this.map.setStyle(map_style);
-    });
-
-    this.map.on(
-      "mouseenter",
-      "bike-lane-reports-point",
-      () => (this.map.getCanvas().style.cursor = "pointer"),
-    );
-
-    this.map.on(
-      "mouseleave",
-      "bike-lane-reports-point",
-      () => (this.map.getCanvas().style.cursor = ""),
-    );
-
-    this.map.on("click", "bike-lane-reports-point", e =>
-      this.addPopup(e.features[0]),
-    );
+      
+      map_style.layers = map_style.layers.filter(layer => {
+        if(layer.id == "bike-lane-reports-point")   return false;
+        if(layer.id == "bike-lane-reports-heat")    return false;
+        if(layer.id == "bike-injdeath-with-coords") return false;
+        if(layer.id == "bike-injdeath-derived")     return false;
+        return true;
+      });
+      return map_style;
   }
-
   addPopup(incident) {
     const { coordinates }  = incident.geometry;
     const placeholder = document.createElement("div");
