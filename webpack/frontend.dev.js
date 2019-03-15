@@ -10,6 +10,7 @@ module.exports = {
   mode: "development",
   node: { fs: "empty" },
   module: {
+    noParse: /(mapbox-gl)\.js$/,
     rules: [
       {
         test: /\.jsx?$/,
@@ -50,7 +51,7 @@ module.exports = {
     port: PORTS.APP,
     proxy: [
       {
-        context: ["/favicon.png"],
+        context: ["/favicon.png", "/api"],
         target: `http://localhost:${PORTS.SERVER}`,
       },
     ],
