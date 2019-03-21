@@ -1,6 +1,10 @@
 {
   "presets": ["env", "react", "stage-2"],
   "plugins": [
-    "styled-components"
+    "styled-components",
+    ["transform-runtime", {
+      "polyfill": false,
+      "regenerator": true
+    }]
   ]
 }
