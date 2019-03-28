@@ -1,9 +1,7 @@
 const webpack = require("webpack");
-const dotenv = require("dotenv");
 const path = require("path");
 const nodeExternals = require("webpack-node-externals");
 
-dotenv.config();
 
 module.exports = {
   name: "server",

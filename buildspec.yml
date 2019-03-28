@@ -1,8 +1,8 @@
 version: 0.2
 
-artifacts:
-  files:
-    - '**/*'
+# step 1: install
+# step 2: build
+# step 3: select 'files' from the location and add to artifacts for the next stage to pick up
 
 phases:
   install:
@@ -26,3 +26,7 @@ phases:
        - touch .env 
        - yarn
        - yarn prod:build
+
+artifacts:
+  files:
+    - '**/*'

@@ -1,10 +1,7 @@
 const webpack = require("webpack");
-const dotenv = require("dotenv");
 const path = require("path");
 const nodeExternals = require("webpack-node-externals");
 const HappyPack = require("happypack");
-
-dotenv.config();
 
 const compiler = webpack({
   name: "server",
