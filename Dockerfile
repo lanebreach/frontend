@@ -10,7 +10,7 @@ RUN yarn install --pure-lockfile
 COPY . .
 
 # Include environment variables at build-time
-RUN cp /usr/src/app/.aptible.env /usr/src/app/.env
+#RUN cp /usr/src/app/.aptible.env /usr/src/app/.env
 
 # Ensure we're in production mode
 ENV NODE_ENV=production

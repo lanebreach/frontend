@@ -1,0 +1,32 @@
+version: 0.2
+
+# step 1: install
+# step 2: build
+# step 3: select 'files' from the location and add to artifacts for the next stage to pick up
+
+phases:
+  install:
+    commands:
+      - apt-get update -y
+      - apt-get install apt-transport-https
+      - curl -sL https://deb.nodesource.com/setup_10.x | bash
+      - apt-get install nodejs
+      # Setup for Yarn
+      - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+      - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+      - apt-get update -y
+      - apt-get install -y yarn
+  pre_build:
+    commands:
+      - yarn install
+      - node -v
+      - npm -v
+  build:
+    commands:
+       - touch .env 
+       - yarn
+       - yarn prod:build
+
+artifacts:
+  files:
+    - 'public/dist'
