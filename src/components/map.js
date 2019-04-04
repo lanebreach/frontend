@@ -65,40 +65,43 @@ export default class Map extends React.Component {
     );
   }
 
-  buildMapStyle(){
+  buildMapStyle() {
     var map_style = this.map.getStyle();
-      map_style.sources.sf311 = {
-        "type": "geojson",
-        "data": this.state.bike_lane_reports
-      };
+    map_style.sources.sf311 = {
+      "type": "geojson",
+      "data": this.state.bike_lane_reports
+    };
 
-      // Uncomment to make data underneath other data.
-      // map_style.layers.unshift({
+    // Uncomment to make data underneath other data.
+    // map_style.layers.unshift({
 
-      map_style.layers.push({
-        "id": "points",
-        "type": "heatmap",
-        "source": "sf311",
-        "paint": {
-          "heatmap-radius": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            0, 2,
-            9, 6
-          ], 
-        }
-      });
+    map_style.layers.push({
+      "id": "points",
+      "type": "heatmap",
+      "source": "sf311",
+      "paint": {
+        "heatmap-radius": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          0, 2,
+          9, 6
+        ], 
+      }
+    });
       
-      map_style.layers = map_style.layers.filter(layer => {
-        if(layer.id == "bike-lane-reports-point")   return false;
-        if(layer.id == "bike-lane-reports-heat")    return false;
-        if(layer.id == "bike-injdeath-with-coords") return false;
-        if(layer.id == "bike-injdeath-derived")     return false;
-        return true;
-      });
-      return map_style;
+    map_style.layers = map_style.layers.filter(layer => {
+      if(layer.id == "bike-lane-reports")         return false;
+      if(layer.id == "bike-lane-reports-point")   return false;
+      if(layer.id == "bike-lane-reports-heat")    return false;
+      if(layer.id == "bike-injdeath-with-coords") return false;
+      if(layer.id == "bike-injdeath-derived")     return false;
+      return true;
+    });
+
+    return map_style;
   }
+
   addPopup(incident) {
     const { coordinates }  = incident.geometry;
     const placeholder = document.createElement("div");

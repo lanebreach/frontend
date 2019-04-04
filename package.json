@@ -9,7 +9,7 @@
     "dc:prune": "docker system prune --all --force --volumes",
     "dev": "concurrently \"yarn dev:app\" \"yarn dev:server\"",
     "dev:app": "webpack-dev-server --config webpack/frontend.dev",
-    "dev:server": "nodemon --legacy-watch --exec babel-node ./server/index.js --watch ./server",
+    "dev:server": "nodemon --legacy-watch --exec babel-node ./server/index.js --watch ./server --watch ./common",
     "prod:build": "yarn prod:clear && webpack --config webpack/frontend.prod.js && webpack --config webpack/backend.prod.js",
     "prod:start": "yarn prod:build && yarn prod:run",
     "prod:run": "node public/dist/bundle-backend.js",
