@@ -1,0 +1,8 @@
+{
+    "cloudcode.profile-cluster-map": {
+        "[default]": "docker-for-desktop"
+    },
+    "cloudcode.image-registry": {
+        "name": "docker.io/timshoaf"
+    }
+}

@@ -6,8 +6,8 @@ function aMonthAgo(date) {
   return new Date(date - (day1 - day2));
 }
 
-module.exports = {
-  fetch311: async function() {
+
+  export async function fetch311() {
     const base_url = 'https://lane-breach.herokuapp.com/api/sf311_cases'
     var today = new Date();
     const url_filters = [
@@ -43,4 +43,3 @@ module.exports = {
 
     return formattedData;
   }  // fetch311
-};

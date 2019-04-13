@@ -21,7 +21,7 @@ export default class Map extends React.Component {
   
   componentDidMount = async () => {
     // fetch the data from a local api to avoid CORS
-    const { data: bikeLaneReports } = await axios.get("/api/reports")
+    const { data: bikeLaneReports } = await axios.get("/api/v1/reports")
     await this.setState({bike_lane_reports: bikeLaneReports})
     this.initializeMap();
   }
