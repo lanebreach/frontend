@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "webpack --config webpack/frontend.prod.js --mode development",
+    "dev": "webpack --config webpack/frontend.dev.js --mode development",
+    "dev-server": "webpack-dev-server --open --mode development --config webpack/frontend.dev.js",
     "build": "webpack --config webpack/frontend.prod.js --mode production"
   },
   "author": "Timothy Shoaf <tim@timshoaf.dev>",
@@ -14,7 +15,6 @@
     "express": "^4.16.4",
     "express-http-proxy": "^1.5.1",
     "moment": "^2.24.0",
-    "react-hot-loader": "^4.8.3",
     "react-moment": "^0.8.4",
     "react-router-dom": "^5.0.0",
     "styled-components": "^4.2.0"
@@ -35,8 +35,10 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.8.4",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0"
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.3.1"
   }
 }
