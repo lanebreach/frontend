@@ -15,7 +15,7 @@ if(!process.env.LANEBREACH_API_ADDR) {
     console.error(errMsg)
     throw new Error(errMsg)
   }
-app.use('/api', proxy(LANEBREACH_API_ADDR))
+app.use('/', proxy(LANEBREACH_API_ADDR))
 
 // listen on the configured port
 const PORT = process.env.PORT;
