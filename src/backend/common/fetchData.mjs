@@ -17,7 +17,7 @@ function aMonthAgo(date) {
     const url_filters = [
       ['start_time', aMonthAgo(today).toISOString().substring(0, 10)],
       ['end_time', today.toISOString().substring(0, 10)],
-      ['per_page', 500]
+      ['per_page', 2500]
     ];
     var url = base_url;
     // #TODO: Use a library for this... or at least break into
