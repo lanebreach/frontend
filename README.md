@@ -27,7 +27,7 @@ You can find more info on all the features here:
 Clone the project, cd into it, install dependencies, pick a port and run it. You're now live and ready to code.
 ```bash
 git clone https://github.com/lanebreach/frontend.git
-cd frontend/
+cd frontend/src
 npm install
 PORT=3000 npm run-script dev
 ```

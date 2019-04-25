@@ -46,6 +46,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'dev'),
     compress: true,
     port: parseInt(process.env.PORT) + 1,
+    historyApiFallback: true,
     proxy: {
       '/api': `http://localhost:${process.env.PORT}`
     }
