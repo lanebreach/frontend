@@ -3,6 +3,9 @@
 This repository contains the front-end application for viewing the data for the
 lane-breach application.
 
+## Build Status (master)
+[![CircleCI](https://circleci.com/gh/lanebreach/frontend.svg?style=svg)](https://circleci.com/gh/lanebreach/frontend)
+
 ## Prerequisite
 
 ### Packages/Tools
