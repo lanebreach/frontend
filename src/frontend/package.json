@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "webpack --config webpack/frontend.dev.js --mode development",
-    "dev-server": "webpack-dev-server --open --mode development --config webpack/frontend.dev.js",
+    "dev": "webpack-dev-server --open --mode development --config webpack/frontend.dev.js",
     "build": "webpack --config webpack/frontend.prod.js --mode production"
   },
   "author": "Timothy Shoaf <tim@timshoaf.dev>",

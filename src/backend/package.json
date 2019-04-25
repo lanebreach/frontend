@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "build": "webpack --config webpack/backend.prod.js --mode production",
+    "dev": "node --inspect=9229 --experimental-modules index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Timothy Shoaf <tim@timshoaf.dev>",

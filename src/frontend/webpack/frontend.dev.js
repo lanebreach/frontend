@@ -1,6 +1,12 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
+if(!process.env.PORT) {
+  const errMsg = "PORT environment variable is not defined"
+  console.error(errMsg)
+  throw new Error(errMsg)
+}
+
 module.exports = {
   entry: path.resolve(__dirname, "../index.js"),
   output: {
@@ -39,9 +45,9 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dev'),
     compress: true,
-    port: 9000,
+    port: parseInt(process.env.PORT) + 1,
     proxy: {
-      '/api': 'http://localhost:3000'
+      '/api': `http://localhost:${process.env.PORT}`
     }
   }
 };
