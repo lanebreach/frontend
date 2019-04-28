@@ -2,17 +2,27 @@ orbs:
   aws-ecr: circleci/aws-ecr@1.0.0
 version: 2.1
 workflows:
-  build_and_push_image:
+  backend:
     jobs:
       - aws-ecr/build_and_push_image:
           account-url: ${AWS_ECR_ACCOUNT_URL}
           aws-access-key-id: ${ACCESS_KEY_ID}
           aws-secret-access-key: ${SECRET_ACCESS_KEY}
-          context: myContext
           create-repo: true
-          dockerfile: myDockerfile
-          path: pathToMyDockerfile
-          profile-name: myProfileName
+          dockerfile: Dockerfile
+          path: src/backend
           region: ${AWS_REGION}
-          repo: myECRRepository
-          tag: myECRRepoTag
+          repo: lanebreach-backend
+          tag: ${CIRCLE_SHA1}
+  frontend:
+    jobs:
+      - aws-ecr/build_and_push_image:
+          account-url: ${AWS_ECR_ACCOUNT_URL}
+          aws-access-key-id: ${ACCESS_KEY_ID}
+          aws-secret-access-key: ${SECRET_ACCESS_KEY}
+          create-repo: true
+          dockerfile: Dockerfile
+          path: src/frontend
+          region: ${AWS_REGION}
+          repo: lanebreach-frontend
+          tag: ${CIRCLE_SHA1}
