@@ -6,7 +6,7 @@ workflows:
     jobs:
       - aws-ecr/build_and_push_image:
           account-url: AWS_ECR_ACCOUNT_URL
-          aws-access-key-id: ACCESS_KEY_ID}
+          aws-access-key-id: ACCESS_KEY_ID
           aws-secret-access-key: SECRET_ACCESS_KEY
           create-repo: true
           dockerfile: Dockerfile
@@ -17,12 +17,12 @@ workflows:
   frontend:
     jobs:
       - aws-ecr/build_and_push_image:
-          account-url: ${AWS_ECR_ACCOUNT_URL}
-          aws-access-key-id: ${ACCESS_KEY_ID}
-          aws-secret-access-key: ${SECRET_ACCESS_KEY}
+          account-url: AWS_ECR_ACCOUNT_URL
+          aws-access-key-id: ACCESS_KEY_ID
+          aws-secret-access-key: SECRET_ACCESS_KEY
           create-repo: true
           dockerfile: Dockerfile
           path: src/frontend
-          region: ${AWS_REGION}
+          region: AWS_REGION
           repo: lanebreach-frontend
-          tag: ${CIRCLE_SHA1}
+          tag: CIRCLE_SHA1
