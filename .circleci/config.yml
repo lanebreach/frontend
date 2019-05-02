@@ -13,7 +13,7 @@ workflows:
           path: ./src/backend
           region: AWS_REGION
           repo: lanebreach-backend
-          tag: CIRCLE_SHA1
+          tag: ${CIRCLE_SHA1}
   frontend:
     jobs:
       - aws-ecr/build_and_push_image:
@@ -25,4 +25,4 @@ workflows:
           path: ./src/frontend
           region: AWS_REGION
           repo: lanebreach-frontend
-          tag: CIRCLE_SHA1
+          tag: ${CIRCLE_SHA1}
