@@ -29,7 +29,7 @@ class About extends React.Component {
 
   render = () => {
     if (this.state.redirect) {
-      return <Redirect push to="/gallery" />;
+      return <Redirect push to="/about" />;
     }
 
     const style = {
