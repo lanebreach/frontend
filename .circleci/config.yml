@@ -14,6 +14,7 @@ workflows:
           region: AWS_REGION
           repo: lanebreach-backend
           tag: ${CIRCLE_SHA1}
+          
       - aws-ecr/build_and_push_image:
           account-url: AWS_ECR_ACCOUNT_URL
           aws-access-key-id: ACCESS_KEY_ID
