@@ -22,6 +22,8 @@ workflows:
           name: deploy_backend
           requires:
             - build_and_push_backend
+          aws-access-key-id: ACCESS_KEY_ID
+          aws-secret-access-key: SECRET_ACCESS_KEY
           aws-region: ${AWS_REGION}
           family: "lanebreach-backend"
           cluster-name: "lanebreach-ecs"
@@ -44,6 +46,8 @@ workflows:
           name: deploy_frontend
           requires:
             - build_and_push_frontend
+          aws-access-key-id: ACCESS_KEY_ID
+          aws-secret-access-key: SECRET_ACCESS_KEY
           aws-region: ${AWS_REGION}
           family: "lanebreach-frontend"
           cluster-name: "lanebreach-ecs"
