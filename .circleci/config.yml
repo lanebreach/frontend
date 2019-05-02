@@ -9,7 +9,7 @@ workflows:
           aws-access-key-id: ACCESS_KEY_ID
           aws-secret-access-key: SECRET_ACCESS_KEY
           create-repo: true
-          dockerfile: Dockerfile
+          dockerfile: ./src/backend/Dockerfile
           path: ./src/backend
           region: AWS_REGION
           repo: lanebreach-backend
@@ -21,7 +21,7 @@ workflows:
           aws-access-key-id: ACCESS_KEY_ID
           aws-secret-access-key: SECRET_ACCESS_KEY
           create-repo: true
-          dockerfile: Dockerfile
+          dockerfile: ./src/frontend/Dockerfile
           path: ./src/frontend
           region: AWS_REGION
           repo: lanebreach-frontend
