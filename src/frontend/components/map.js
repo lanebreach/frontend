@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import IncidentPopup from "./IncidentPopup";
 import axios from "axios"
 
+const dataFetcher = require('../common/fetchData.js');
+
 const kMapId = 'mapbox-map';
 const kMinZoom = 11;
 
@@ -21,7 +23,7 @@ export default class Map extends React.Component {
   
   componentDidMount = async () => {
     // fetch the data from a local api to avoid CORS
-    const { data: bikeLaneReports } = await axios.get("/api/v1/reports")
+    var bikeLaneReports = await dataFetcher.fetch311();
     await this.setState({bike_lane_reports: bikeLaneReports})
     this.initializeMap();
   }
