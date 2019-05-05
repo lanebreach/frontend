@@ -28,6 +28,9 @@ workflows:
           family: "lanebreach-backend"
           cluster-name: "lanebreach-ecs"
           container-image-name-updates: "container=lanebreach-backend,tag=${CIRCLE_SHA1}"
+          filters:
+            branches:
+              only: master
       
       - aws-ecr/build_and_push_image:
           name: build_and_push_frontend
@@ -52,3 +55,6 @@ workflows:
           family: "lanebreach-frontend"
           cluster-name: "lanebreach-ecs"
           container-image-name-updates: "container=lanebreach-frontend,tag=${CIRCLE_SHA1}"
+          filters:
+            branches:
+              only: master
