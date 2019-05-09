@@ -26,10 +26,6 @@ export default class Map extends React.Component {
     this.initializeMap();
   }
 
-  componentWillUnmount() {
-    this.map.remove();
-  }
-
   initializeMap() {
     mapboxgl.accessToken =
       "pk.eyJ1IjoiYWdhZXNzZXIiLCJhIjoiY2pvZGY5bmh4MWJtcTNsbWtmN2RmNnhiNCJ9.iwOotv1u0S92o-Vj2CCjag";
