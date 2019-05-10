@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Map from "../map";
-import { Redirect } from "react-router";
 import { Link } from 'react-router-dom';
 
 const Padding = styled.div`
