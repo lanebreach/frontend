@@ -1,18 +1,49 @@
 .about-container {
     padding: 0 15% 8% 8%; 
+    background-color: #f4f7f6;
 }
 
-.tagline {
-    font-size: 1.5rem; 
+/* INTRO */
+
+.intro {
+    background-color: #FEFEF5;
+    height: 300px;
+}
+
+.intro .content-header {
+    margin-top: 50px; 
+    margin-left: 50px;
+}
+
+.intro .content-section {
+    font-size: .9em; 
+    width: 80%; 
     font-style: italic; 
     font-weight: 500;
 }
 
+
+.mission .content-header {
+    text-align: center; 
+}
+
+.mission .content {
+    margin-left: 15%; 
+    width: 75%; 
+    font-size: 1.25em; 
+}
+
 .content-section {
+    padding-top: 2%; 
     padding-bottom: 2%; 
+    background-color: #FEFEF5;
 }
 
 .content-header {
     font-size: 1.5rem;
     font-weight: bold; 
+}
+
+#header-img {
+    background-color: burlywood;
 }
