@@ -37,7 +37,7 @@ const About = () => (
 
                     </div>
 
-                    <div className="download">
+                    <div className="download content-section">
                         <div className="row">
                             <div className="col">
                                 <div className="content-section">
@@ -51,9 +51,11 @@ const About = () => (
                                 </div>
                             </div>
                             <div className="col">
-                                <div className="row content-section">
+                                <p>
+                                    <div className="row content-section">
                                     Iphone
-                                </div>
+                                    </div>
+                                </p>
                             </div>
                             <div className="col">
                                 <div className="row content-section">
@@ -78,7 +80,7 @@ const About = () => (
 
                     </div>
 
-                    <div className="more-info">
+                    <div className="more-info content-section">
                         <div className="row">
 
                             <div className="content-section col">
@@ -92,7 +94,7 @@ const About = () => (
                             </div>
 
                             <div className="content-section col">
-                                <div className="row">
+                                <div className="row more-info-links">
                                     <div className="col">
                                         Github
                                     </div>
@@ -103,7 +105,7 @@ const About = () => (
                                         Twitter
                                     </div>
                                 </div>
-                                <div className="content">
+                                <div className="content more-info-email">
                                     Email us directly @ bikelanessf@gmail.com!
                                 </div>
                             </div>
@@ -111,27 +113,39 @@ const About = () => (
                         </div>
                     </div>
 
-                    <div className="partners">
+                    <div className="partners content-section">
                         <div className="content-section">
                             <div className="content-header">
                                 Our Partners
                             </div>
                         </div>
 
-                        <div className="row">
+                        <div className="row partner-links">
                             <div className="col">
                                 <div className="content-section">
-                                    Code For America: SF Brigade
+                                    <a href="https://brigade.codeforamerica.org/brigades/Code-for-San-Francisco/">
+                                        <div className="partner-item" >
+                                            Code For America: SF Brigade
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div className="col">
-                                <div className="content-section">
-                                    <a href="https://twitter.com/EverySF311Bike">Every Blocked Bike Lane Report SF</a>
+                                <div className="content-section ">
+                                    <a href="https://twitter.com/EverySF311Bike">
+                                        <div className="partner-item" >
+                                            Every Blocked Bike Lane Report SF
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div className="col">
-                                <div className="content-section">
-                                    <a href="https://twitter.com/bikelanes_sf">Cars out of bike lanes!</a>
+                                <div className="content-section ">
+                                    <a href="https://twitter.com/bikelanes_sf">
+                                        <div className="partner-item" >
+                                            Cars out of bike lanes!
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>

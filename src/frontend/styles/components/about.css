@@ -22,6 +22,7 @@
     font-weight: 500;
 }
 
+/* MISSION */
 
 .mission .content-header {
     text-align: center; 
@@ -32,6 +33,39 @@
     width: 75%; 
     font-size: 1.25em; 
 }
+
+/* DOWNLOAD */
+
+.download {
+    padding: 20px; 
+}
+
+/* MORE INFO */
+
+.more-info-links .col {
+    padding: 20px; 
+    text-align: center; 
+}
+
+.more-info-email {
+    text-align: center; 
+}
+
+/* PARTNERS */
+.partners .content-header {
+    text-align: center; 
+}
+
+.partner-links {
+    text-align: center; 
+    padding: 20px; 
+}
+
+.partner-item {
+    padding: 20px; 
+    border: 1px solid grey; 
+}
+
 
 .content-section {
     padding-top: 2%; 
