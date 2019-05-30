@@ -1,26 +1,60 @@
 orbs:
   aws-ecr: circleci/aws-ecr@1.0.0
+  aws-ecs: circleci/aws-ecs@0.0.8
 version: 2.1
 workflows:
   build_and_push:
     jobs:
       - aws-ecr/build_and_push_image:
+          name: build_and_push_backend
           account-url: AWS_ECR_ACCOUNT_URL
           aws-access-key-id: ACCESS_KEY_ID
           aws-secret-access-key: SECRET_ACCESS_KEY
-          create-repo: true
+          # this create repo if doesn't exist feature currently fails
+          # create-repo: true
           dockerfile: ./src/backend/Dockerfile
           path: ./src/backend
           region: AWS_REGION
           repo: lanebreach-backend
           tag: ${CIRCLE_SHA1}
+
+      - aws-ecs/deploy-service-update:
+          name: deploy_backend
+          requires:
+            - build_and_push_backend
+          aws-access-key-id: $ACCESS_KEY_ID
+          aws-secret-access-key: $SECRET_ACCESS_KEY
+          aws-region: ${AWS_REGION}
+          family: "lanebreach-backend"
+          cluster-name: "lanebreach-ecs"
+          container-image-name-updates: "container=lanebreach-backend,tag=${CIRCLE_SHA1}"
+          filters:
+            branches:
+              only: master
+      
       - aws-ecr/build_and_push_image:
+          name: build_and_push_frontend
           account-url: AWS_ECR_ACCOUNT_URL
           aws-access-key-id: ACCESS_KEY_ID
           aws-secret-access-key: SECRET_ACCESS_KEY
-          create-repo: true
+          # this create repo if doesn't exist feature currently fails
+          # create-repo: true
           dockerfile: ./src/frontend/Dockerfile
           path: ./src/frontend
           region: AWS_REGION
           repo: lanebreach-frontend
           tag: ${CIRCLE_SHA1}
+
+      - aws-ecs/deploy-service-update:
+          name: deploy_frontend
+          requires:
+            - build_and_push_frontend
+          aws-access-key-id: $ACCESS_KEY_ID
+          aws-secret-access-key: $SECRET_ACCESS_KEY
+          aws-region: ${AWS_REGION}
+          family: "lanebreach-frontend"
+          cluster-name: "lanebreach-ecs"
+          container-image-name-updates: "container=lanebreach-frontend,tag=${CIRCLE_SHA1}"
+          filters:
+            branches:
+              only: master
