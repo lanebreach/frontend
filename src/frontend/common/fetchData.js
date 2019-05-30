@@ -6,7 +6,6 @@ function aMonthAgo(date) {
   return new Date(date - (day1 - day2));
 }
 
-
 export async function fetch311() {
   const base_url = 'https://lane-breach.herokuapp.com/api/sf311_cases'
   var today = new Date();
@@ -23,7 +22,6 @@ export async function fetch311() {
     url += sep + url_filters[i][0] + '=' + url_filters[i][1];
   }
 
-  console.log(url);
   const { data: bikeLaneReports } = await axios.get(url);
 
   const formattedData = {
