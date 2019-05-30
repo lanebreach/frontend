@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 
 const Padding = styled.div`
   padding: 20px;
+  canvas {
+    cursor: default;
+  }
 `;
 
 const Title = styled.h1`

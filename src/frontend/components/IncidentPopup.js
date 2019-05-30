@@ -2,7 +2,6 @@ import React from "react";
 import styled from 'styled-components';
 import Moment from 'react-moment';
 
-
 const Heading = styled.div``;
 
 const Time = styled.div``;
@@ -34,7 +33,7 @@ const MediaElement = (props) => {
 
 const Details = (props) => {
   if (props.deets != "") {
-    return (<div><b>Details:</b> {props.deets}</div>);
+    return (<div style={{maxWidth: "256px"}}><b>Details:</b> {props.deets}</div>);
   }
 
   return null;
