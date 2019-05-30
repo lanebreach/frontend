@@ -41,9 +41,13 @@ function aMonthAgo(date) {
           coordinates: [report.long, report.lat],
         },
         properties: {
-          title: `Point${i}`,
-          icon: "harbor",
-          color: "#FFFFFF"
+          id: report.id,
+          address: report.address,
+          supervisor_district: report.supervisor_district,
+          media: report.media_url,
+          source: report.source,
+          details: report.description,
+          neighborhood: report.neighborhoods_sffind_boundaries
         }
       }))
     };
