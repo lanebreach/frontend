@@ -1,0 +1,27 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: node-lanebreach-frontend
+  labels:
+    app: node-lanebreach
+    tier: frontend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: node-lanebreach
+        tier: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: node-lanebreach-frontend
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http-server
+          containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: LANEBREACH_API_ADDR
+          value: node-lanebreach-backend:3000

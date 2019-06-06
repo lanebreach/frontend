@@ -1,0 +1,23 @@
+{
+  "name": "lanebreach",
+  "version": "1.0.0",
+  "description": "This repository contains the front-end application for viewing the data for the lane-breach application.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "(cd backend && npm install); (cd frontend && npm install);",
+    "dev": "concurrently \"cd backend && npm run-script dev\" \"cd frontend && npm run-script dev\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lanebreach/frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lanebreach/frontend/issues"
+  },
+  "homepage": "https://github.com/lanebreach/frontend#readme",
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  }
+}

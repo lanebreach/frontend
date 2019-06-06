@@ -1,0 +1,27 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: node-lanebreach-backend
+  labels:
+    app: node-lanebreach
+    tier: backend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: node-lanebreach
+        tier: backend
+    spec:
+      containers:
+      - name: backend
+        image: node-lanebreach-backend
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http-server
+          containerPort: 3000
+        env:
+        - name: PORT
+          value: "3000"
+        - name: RANDOM_ENV_VAR
+          value: "Test String"

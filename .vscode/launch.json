@@ -1,0 +1,39 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Debug Backend on Localhost",
+            "port": 9229
+        },
+        {
+            "podSelector": {
+                "app": "node-lanebreach",
+                "tier": "frontend"
+            },
+            "type": "cloudcode",
+            "language": "Node",
+            "request": "attach",
+            "debugPort": 9229,
+            "localRoot": "${workspaceFolder}/src/frontend",
+            "remoteRoot": "/frontend",
+            "name": "Debug Frontend on Kubernetes",
+
+        },
+        {
+            "podSelector": {
+                "app": "node-lanebreach",
+                "tier": "backend"
+            },
+            "type": "cloudcode",
+            "language": "Node",
+            "request": "attach",
+            "debugPort": 9229,
+            "localRoot": "${workspaceFolder}/src/backend",
+            "remoteRoot": "/backend",
+            "name": "Debug Backend on Kubernetes",
+
+        }
+    ]
+}

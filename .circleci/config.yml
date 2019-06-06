@@ -1,15 +1,60 @@
-# Use the latest 2.1 version of CircleCI pipeline processing engine, see https://circleci.com/docs/2.0/configuration-reference/
-version: 2.1
-
-# Use a package of configuration called an orb, see https://circleci.com/docs/2.0/orb-intro/
 orbs:
-  # Declare a dependency on the welcome-orb
-  welcome: circleci/welcome-orb@0.3.1
-
-# Orchestrate or schedule a set of jobs, see https://circleci.com/docs/2.0/workflows/
+  aws-ecr: circleci/aws-ecr@1.0.0
+  aws-ecs: circleci/aws-ecs@0.0.8
+version: 2.1
 workflows:
-  # Name the workflow "Welcome"
-  Welcome:
-    # Run the welcome/run job in its own container
+  build_and_push:
     jobs:
-      - welcome/run
+      - aws-ecr/build_and_push_image:
+          name: build_and_push_backend
+          account-url: AWS_ECR_ACCOUNT_URL
+          aws-access-key-id: ACCESS_KEY_ID
+          aws-secret-access-key: SECRET_ACCESS_KEY
+          # this create repo if doesn't exist feature currently fails
+          # create-repo: true
+          dockerfile: ./src/backend/Dockerfile
+          path: ./src/backend
+          region: AWS_REGION
+          repo: lanebreach-backend
+          tag: ${CIRCLE_SHA1}
+
+      - aws-ecs/deploy-service-update:
+          name: deploy_backend
+          requires:
+            - build_and_push_backend
+          aws-access-key-id: $ACCESS_KEY_ID
+          aws-secret-access-key: $SECRET_ACCESS_KEY
+          aws-region: ${AWS_REGION}
+          family: "lanebreach-backend"
+          cluster-name: "lanebreach-ecs"
+          container-image-name-updates: "container=lanebreach-backend,tag=${CIRCLE_SHA1}"
+          filters:
+            branches:
+              only: master
+      
+      - aws-ecr/build_and_push_image:
+          name: build_and_push_frontend
+          account-url: AWS_ECR_ACCOUNT_URL
+          aws-access-key-id: ACCESS_KEY_ID
+          aws-secret-access-key: SECRET_ACCESS_KEY
+          # this create repo if doesn't exist feature currently fails
+          # create-repo: true
+          dockerfile: ./src/frontend/Dockerfile
+          path: ./src/frontend
+          region: AWS_REGION
+          repo: lanebreach-frontend
+          tag: ${CIRCLE_SHA1}
+
+      - aws-ecs/deploy-service-update:
+          name: deploy_frontend
+          requires:
+            - build_and_push_frontend
+          aws-access-key-id: $ACCESS_KEY_ID
+          aws-secret-access-key: $SECRET_ACCESS_KEY
+          aws-region: ${AWS_REGION}
+          family: "lanebreach-frontend"
+          cluster-name: "lanebreach-ecs"
+          container-image-name-updates: "container=lanebreach-frontend,tag=${CIRCLE_SHA1}"
+          filters:
+            branches:
+              only: master

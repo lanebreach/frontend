@@ -1,0 +1,108 @@
+.about-container {
+  padding: 0 15% 8% 8%;
+  background-color: #f4f7f6;
+}
+
+/* INTRO */
+
+.intro {
+  background-color: #fefef5;
+  height: 300px;
+}
+
+.intro .content-header {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.intro .content-section {
+  font-size: 0.9em;
+  width: 80%;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* MISSION */
+
+.mission {
+  height: 225px;
+}
+
+.mission .content-header {
+  text-align: center;
+}
+
+.mission .content {
+  margin-left: 15%;
+  width: 75%;
+  font-size: 1.25em;
+}
+
+/* DOWNLOAD */
+
+.download {
+  padding: 20px;
+}
+
+.download-info {
+  font-size: 1.25em;
+  font-style: italic;
+}
+
+/* MORE INFO */
+
+.more-info {
+  padding: 20px;
+}
+
+.more-info-links a {
+  padding: 10px;
+  text-align: center;
+}
+
+.more-info-links a div {
+  padding: 20px;
+}
+
+.more-info-email {
+  text-align: center;
+}
+
+/* PARTNERS */
+.partners .content-header {
+  text-align: center;
+}
+
+.partner-links {
+  text-align: center;
+  padding: 20px;
+}
+
+.partner-item {
+  padding: 20px;
+  border: 1px solid grey;
+}
+
+/* GENERAL */
+
+.center {
+  text-align: center;
+  width: 100%;
+  margin-top: 5%;
+}
+
+.content-section {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background-color: #fefef5;
+}
+
+.content-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#header-img {
+  height: 100%;
+  background-color: burlywood;
+}
