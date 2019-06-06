@@ -35,14 +35,6 @@ export default class Map extends React.Component {
     this.initializeMap();
   }
 
-
-  //month is an Integer
-  filterBy(month){
-    var filters = ['==', 'month', month];
-    this.map.setFilter("reports-points", filters);
-    this.map.setFilter('reports-heatmap', filters);
-  }
-
   initializeMap() {
     mapboxgl.accessToken =
       "pk.eyJ1IjoiYWdhZXNzZXIiLCJhIjoiY2pvZGY5bmh4MWJtcTNsbWtmN2RmNnhiNCJ9.iwOotv1u0S92o-Vj2CCjag";
@@ -55,8 +47,6 @@ export default class Map extends React.Component {
       minZoom: kMinZoom,
       maxBounds: kMaxBounds
     });
-
-
 
     this.map.on("load", () => {
       const map_style = this.buildMapStyle();
@@ -82,11 +72,6 @@ export default class Map extends React.Component {
 
       this.addPopup(e.features[0])
     });
-
-    // this.map.on("style.load", e => {
-    //   this.filterBy(0)
-    // })
-
   }
 
   buildMapStyle() {
@@ -139,6 +124,13 @@ export default class Map extends React.Component {
     });
 
     return map_style;
+  }
+
+  //month is an Integer
+  filterBy(month){
+    var filters = ['==', 'month', month];
+    this.map.setFilter("reports-points", filters);
+    this.map.setFilter('reports-heatmap', filters);
   }
 
   addPopup(incident) {
