@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Map from "../map";
-import { Redirect } from "react-router";
+import { Link } from 'react-router-dom';
 
 const Padding = styled.div`
   padding: 20px;
+  canvas {
+    cursor: default;
+  }
 `;
 
 const Title = styled.h1`
@@ -15,22 +18,7 @@ const Title = styled.h1`
   color: wheat;
 `;
 
-class About extends React.Component {
-  constructor () {
-    super();
-    this.state = {
-      redirect: false
-    };
-  }
-
-  handleOnClick = () => {
-    this.setState({redirect: true});
-  }
-
-  render = () => {
-    if (this.state.redirect) {
-      return <Redirect push to="/gallery" />;
-    }
+const AboutLink = () => {
 
     const style = {
       "position": "relative",
@@ -41,14 +29,14 @@ class About extends React.Component {
       "cursor": "pointer"
     };
 
-    return (<span onClick={this.handleOnClick} style={style}><h4>About</h4></span>);
-  }
+    return (<Link style={style}  to="/about"><h4>About</h4></Link>);
+  
 };
 
 const Landing = () => (
   <Padding>
-    <Title>Let's get cars out of bike lanes.</Title>
-    <About />
+    <Title> Let's get cars out of bike lanes.</Title>
+    <AboutLink /> 
     <Map />
   </Padding>
 );
