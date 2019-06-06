@@ -20,12 +20,27 @@ export default class Map extends React.Component {
       bike_lane_reports: []
     };
   }
-  
+
   componentDidMount = async () => {
     // fetch the data from a local api to avoid CORS
     var bikeLaneReports = await dataFetcher.fetch311();
+
+    //attach month as an explicit property to filter against
+    bikeLaneReports.features = bikeLaneReports.features.map(function(d) {
+      d.properties.month = new Date(d.properties.time).getMonth();
+      return d;
+    })
+
     await this.setState({bike_lane_reports: bikeLaneReports})
     this.initializeMap();
+  }
+
+
+  //month is an Integer
+  filterBy(month){
+    var filters = ['==', 'month', month];
+    this.map.setFilter("reports-points", filters);
+    this.map.setFilter('reports-heatmap', filters);
   }
 
   initializeMap() {
@@ -40,6 +55,8 @@ export default class Map extends React.Component {
       minZoom: kMinZoom,
       maxBounds: kMaxBounds
     });
+
+
 
     this.map.on("load", () => {
       const map_style = this.buildMapStyle();
@@ -65,6 +82,11 @@ export default class Map extends React.Component {
 
       this.addPopup(e.features[0])
     });
+
+    // this.map.on("style.load", e => {
+    //   this.filterBy(0)
+    // })
+
   }
 
   buildMapStyle() {
