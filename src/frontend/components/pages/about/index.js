@@ -31,7 +31,7 @@ const About = () => (
       </div>
       <div className="body">
         <div className="body-content">
-          <div className="content-section brand-green">
+          <div className="content-section brand-green bold-text">
             <div className="mission">
               <div className="content-header">
                 <h1>Mission</h1>
@@ -65,7 +65,7 @@ const About = () => (
               <div className="col">
                 <div className="content-section">
                   <a href="https://itunes.apple.com/us/app/lane-breach/id1447775781?mt=8">
-                    <p className="center">Iphone</p>
+                    <p className="center bold-text">Download from App Store</p>
                   </a>
                 </div>
               </div>
@@ -87,7 +87,7 @@ const About = () => (
             </div>
           </div>
 
-          <div className="content-section brand-green">
+          <div className="content-section brand-green bold-text">
             <div className="more-info">
               <div className="row">
                 <div className="col">
@@ -132,7 +132,7 @@ const About = () => (
               <div className="content-header">Our Partners</div>
             </div>
 
-            <div className="row partner-links">
+            <div className="row partner-links bold-text">
               <div className="col">
                 <div className="content-section">
                   <a href="https://brigade.codeforamerica.org/brigades/Code-for-San-Francisco/">
