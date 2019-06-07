@@ -1,11 +1,14 @@
 import React from "react";
 import "../../../styles/grid.css";
 import "../../../styles/components/about.css";
+// Static Images
+const headerImg = require("../../../public/images/lanebreach-about-img.jpg");
+const appStoreImg = require("../../../public/images/downloadOnAppStore.png");
 
 const About = () => (
   <section component="about">
     <div className="about-container">
-      <div className="content-section">
+      <div className="content-section intro-container">
         <div className="intro">
           <div className="row">
             <div className="content-header col">
@@ -23,8 +26,8 @@ const About = () => (
                 <a href="https://www.codeforamerica.org/">codeforamerica</a>.
               </div>
             </div>
-            <div className="col">
-              <div id="header-img" />
+            <div className="col right">
+              <img id="intro-img" src={headerImg} />
             </div>
           </div>
         </div>
@@ -63,9 +66,13 @@ const About = () => (
                 </div>
               </div>
               <div className="col">
-                <div className="content-section">
+                <div className="content-section center">
                   <a href="https://itunes.apple.com/us/app/lane-breach/id1447775781?mt=8">
-                    <p className="center">Download from App Store</p>
+                    <img
+                      className="center"
+                      id="app-store-img"
+                      src={appStoreImg}
+                    />
                   </a>
                 </div>
               </div>

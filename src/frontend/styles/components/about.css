@@ -15,21 +15,31 @@
 
 /* INTRO */
 
+.content-section.intro-container {
+  padding: 0;
+  height: 400px;
+}
+
 .intro {
   background-color: #eff9f3;
   height: 300px;
 }
 
 .intro .content-header {
-  margin-top: 50px;
+  margin-top: 110px;
   margin-left: 50px;
 }
 
 .intro .content-section {
   font-size: 0.9em;
-  width: 80%;
+  width: 115%;
   font-style: italic;
   font-weight: 500;
+}
+
+.col.right {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* MISSION */
@@ -57,6 +67,12 @@
 .download-info {
   font-size: 1.25em;
   font-style: italic;
+}
+
+#app-store-img {
+  width: 30%;
+  position: relative;
+  bottom: 20px;
 }
 
 /* MORE INFO */
@@ -114,6 +130,8 @@
 
 #header-img {
   height: 100%;
+  background-image: url("../../public/images/lanebreach-about-img.jpg");
+  background-repeat: no-repeat;
 }
 
 .bold-text {
