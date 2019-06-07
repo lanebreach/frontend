@@ -31,7 +31,7 @@ const About = () => (
       </div>
       <div className="body">
         <div className="body-content">
-          <div className="content-section">
+          <div className="content-section brand-green">
             <div className="mission">
               <div className="content-header">
                 <h1>Mission</h1>
@@ -87,7 +87,7 @@ const About = () => (
             </div>
           </div>
 
-          <div className="content-section">
+          <div className="content-section brand-green">
             <div className="more-info">
               <div className="row">
                 <div className="col">

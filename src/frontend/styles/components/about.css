@@ -1,12 +1,22 @@
 .about-container {
-  padding: 0 15% 8% 8%;
-  background-color: #f4f7f6;
+  padding: 0 15% 0 8%;
+  background-color: #e8ebea;
+}
+
+.content-section.brand-green {
+  background-color: #53c183;
+  color: #eff9f3;
+  font-weight: bold;
+}
+
+.about-container a {
+  color: #0b488a;
 }
 
 /* INTRO */
 
 .intro {
-  background-color: #fefef5;
+  background-color: #eff9f3;
   height: 300px;
 }
 
@@ -94,7 +104,7 @@
 .content-section {
   padding-top: 2%;
   padding-bottom: 2%;
-  background-color: #fefef5;
+  background-color: #eff9f3;
 }
 
 .content-header {
