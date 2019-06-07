@@ -115,3 +115,7 @@
 #header-img {
   height: 100%;
 }
+
+.bold-text {
+  font-weight: bold;
+}

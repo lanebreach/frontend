@@ -65,7 +65,7 @@ const About = () => (
               <div className="col">
                 <div className="content-section">
                   <a href="https://itunes.apple.com/us/app/lane-breach/id1447775781?mt=8">
-                    <p className="center bold-text">Download from App Store</p>
+                    <p className="center">Download from App Store</p>
                   </a>
                 </div>
               </div>
