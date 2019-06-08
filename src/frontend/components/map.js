@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import IncidentPopup from "./IncidentPopup";
 import axios from "axios"
 
+const dataFetcher = require('../common/fetchData.js');
+
 const kMapId = 'mapbox-map';
 const kMinZoom = 11;
 
@@ -21,7 +23,7 @@ export default class Map extends React.Component {
   
   componentDidMount = async () => {
     // fetch the data from a local api to avoid CORS
-    const { data: bikeLaneReports } = await axios.get("/api/v1/reports")
+    var bikeLaneReports = await dataFetcher.fetch311();
     await this.setState({bike_lane_reports: bikeLaneReports})
     this.initializeMap();
   }
@@ -32,7 +34,7 @@ export default class Map extends React.Component {
 
     this.map = new mapboxgl.Map({
       container: kMapId,
-      style: "mapbox://styles/agaesser/cjn5lb26b0gty2rnr3laj0ljd",
+      style: "mapbox://styles/agaesser/cjuzybtpj45g71fqx19n42i0j",
       center: [-122.450577, 37.759108], // starting position [lng, lat]
       zoom: kMinZoom,
       minZoom: kMinZoom,
@@ -56,9 +58,13 @@ export default class Map extends React.Component {
       () => (this.map.getCanvas().style.cursor = ""),
     );
 
-    this.map.on("click", "bike-lane-reports-point", e =>
-      this.addPopup(e.features[0]),
-    );
+    this.map.on("click", "reports-points", e => {
+      if (this.map.getZoom() < 14) {
+        return;
+      }
+
+      this.addPopup(e.features[0])
+    });
   }
 
   buildMapStyle() {
@@ -72,27 +78,42 @@ export default class Map extends React.Component {
     // map_style.layers.unshift({
 
     map_style.layers.push({
-      "id": "points",
+      "id": "reports-heatmap",
       "type": "heatmap",
       "source": "sf311",
       "paint": {
-        "heatmap-radius": [
+        "heatmap-radius": 6,
+        "heatmap-opacity": [
           "interpolate",
           ["linear"],
           ["zoom"],
-          0, 2,
-          9, 6
-        ], 
+          13, 1,
+          15, 0
+        ],
       }
     });
-      
-    map_style.layers = map_style.layers.filter(layer => {
-      if(layer.id == "bike-lane-reports")         return false;
-      if(layer.id == "bike-lane-reports-point")   return false;
-      if(layer.id == "bike-lane-reports-heat")    return false;
-      if(layer.id == "bike-injdeath-with-coords") return false;
-      if(layer.id == "bike-injdeath-derived")     return false;
-      return true;
+
+    map_style.layers.push({
+      "id": "reports-points",
+      "type": "circle",
+      "source": "sf311",
+      "paint": {
+        "circle-radius": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          14, 2,
+          16, 5
+        ],
+        "circle-color": "white",
+        "circle-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          14, 0,
+          15, 1
+        ],
+      }
     });
 
     return map_style;
@@ -102,7 +123,13 @@ export default class Map extends React.Component {
     const { coordinates }  = incident.geometry;
     const placeholder = document.createElement("div");
     ReactDOM.render(<IncidentPopup {...incident.properties} />, placeholder);
-    new mapboxgl.Popup()
+
+    const popup_options = {
+      closeButton: false,
+      closeOnClick: true,
+    };
+
+    new mapboxgl.Popup(popup_options)
       .setDOMContent(placeholder)
       .setLngLat(coordinates)
       .addTo(this.map);
