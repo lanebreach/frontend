@@ -1,3 +1,7 @@
+body {
+  min-width: 800px;
+}
+
 .about-container {
   padding: 0 15% 0 8%;
   background-color: #e8ebea;
@@ -42,6 +46,16 @@
   justify-content: flex-end;
 }
 
+@media screen and (max-width: 1200px) {
+  #intro-img-col {
+    display: none;
+  }
+
+  .intro .content-section {
+    width: 90%;
+  }
+}
+
 /* MISSION */
 
 .mission {
@@ -70,7 +84,7 @@
 }
 
 #app-store-img {
-  width: 30%;
+  width: 125px;
   position: relative;
   bottom: 20px;
 }

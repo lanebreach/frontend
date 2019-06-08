@@ -26,7 +26,7 @@ const About = () => (
                 <a href="https://www.codeforamerica.org/">codeforamerica</a>.
               </div>
             </div>
-            <div className="col right">
+            <div className="col right" id="intro-img-col">
               <img id="intro-img" src={headerImg} />
             </div>
           </div>
