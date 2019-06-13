@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import IncidentPopup from "./IncidentPopup";
+import MapOverlay from "./MapOverlay";
 import axios from "axios"
+import { format } from "d3-format";
 
 const dataFetcher = require('../common/fetchData.js');
 
@@ -127,8 +129,8 @@ export default class Map extends React.Component {
   }
 
   //month is an Integer
-  filterBy(month){
-    var filters = ['==', 'month', month];
+  filterByMonth = (month) => {
+    var filters = ['==', 'month', parseInt(month)];
     this.map.setFilter("reports-points", filters);
     this.map.setFilter('reports-heatmap', filters);
   }
@@ -159,6 +161,11 @@ export default class Map extends React.Component {
       width: "100%",
     };
 
-    return <div style={style} id={kMapId} />;
+    return (
+      <div>
+        <div style={style} id={kMapId} />;
+        <MapOverlay onMonthChange={this.filterByMonth}/>
+      </div>
+    )
   }
 }
