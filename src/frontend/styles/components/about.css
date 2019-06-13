@@ -1,25 +1,59 @@
+body {
+  min-width: 800px;
+}
+
 .about-container {
-  padding: 0 15% 8% 8%;
-  background-color: #f4f7f6;
+  padding: 0 15% 0 8%;
+  background-color: #e8ebea;
+}
+
+.content-section.brand-green {
+  background-color: #53c183;
+  color: #eff9f3;
+}
+
+.about-container a {
+  color: #065a82;
+  font-weight: bold;
 }
 
 /* INTRO */
 
+.content-section.intro-container {
+  padding: 0;
+  height: 400px;
+}
+
 .intro {
-  background-color: #fefef5;
+  background-color: #eff9f3;
   height: 300px;
 }
 
 .intro .content-header {
-  margin-top: 50px;
+  margin-top: 110px;
   margin-left: 50px;
 }
 
 .intro .content-section {
   font-size: 0.9em;
-  width: 80%;
+  width: 115%;
   font-style: italic;
   font-weight: 500;
+}
+
+.col.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 1200px) {
+  #intro-img-col {
+    display: none;
+  }
+
+  .intro .content-section {
+    width: 90%;
+  }
 }
 
 /* MISSION */
@@ -47,6 +81,12 @@
 .download-info {
   font-size: 1.25em;
   font-style: italic;
+}
+
+#app-store-img {
+  width: 125px;
+  position: relative;
+  bottom: 20px;
 }
 
 /* MORE INFO */
@@ -94,7 +134,7 @@
 .content-section {
   padding-top: 2%;
   padding-bottom: 2%;
-  background-color: #fefef5;
+  background-color: #eff9f3;
 }
 
 .content-header {
@@ -104,5 +144,10 @@
 
 #header-img {
   height: 100%;
-  background-color: burlywood;
+  background-image: url("../../public/images/lanebreach-about-img.jpg");
+  background-repeat: no-repeat;
+}
+
+.bold-text {
+  font-weight: bold;
 }
