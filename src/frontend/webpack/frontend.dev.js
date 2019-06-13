@@ -1,10 +1,10 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
-if (!process.env.PORT) {
-  const errMsg = "PORT environment variable is not defined";
-  console.error(errMsg);
-  throw new Error(errMsg);
+if(!process.env.PORT) {
+  const errMsg = "PORT environment variable is not defined"
+  console.error(errMsg)
+  throw new Error(errMsg)
 }
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "../dev"),
-    publicPath: "/"
+    publicPath: "/",
   },
   devtool: "source-map",
   module: {
@@ -20,7 +20,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loaders: ["react-hot-loader/webpack", "babel-loader"]
+        loaders: ["react-hot-loader/webpack", "babel-loader"],
       },
       {
         test: /\.html$/,
@@ -31,21 +31,8 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
-        loaders: ["style-loader", "css-loader"]
-      },
-      {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        use: [
-          "file-loader",
-          {
-            loader: "image-webpack-loader",
-            options: {
-              bypassOnDebug: true, // webpack@1.x
-              disable: true // webpack@2.x and newer
-            }
-          }
-        ]
+        test: /\.css$/,  
+        loaders: ['style-loader', 'css-loader'],
       }
     ]
   },
@@ -56,12 +43,12 @@ module.exports = {
     })
   ],
   devServer: {
-    contentBase: path.join(__dirname, "dev"),
+    contentBase: path.join(__dirname, 'dev'),
     compress: true,
     port: parseInt(process.env.PORT) + 1,
     historyApiFallback: true,
     proxy: {
-      "/api": `http://localhost:${process.env.PORT}`
+      '/api': `http://localhost:${process.env.PORT}`
     }
   }
 };
