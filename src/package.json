@@ -19,8 +19,5 @@
   "homepage": "https://github.com/lanebreach/frontend#readme",
   "devDependencies": {
     "concurrently": "^4.1.0"
-  },
-  "dependencies": {
-    "image-webpack-loader": "^5.0.0"
   }
 }
