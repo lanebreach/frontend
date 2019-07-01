@@ -4,3 +4,29 @@
   flex-direction: row wrap;
   align-content: space-around;
 }
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.rows {
+  flex-direction: column;
+}
+
+.wrap {
+  flex-flow: row wrap;
+}
+
+.column {
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0.75rem;
+}
+
+.center-horizontal {
+  display: flex;
+  justify-content: center;
+}

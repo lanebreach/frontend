@@ -26,7 +26,7 @@ const StatCard = props => {
       <div className="statCard-container">
         <div className="statCard">
           {/*  start of statCard-title */}
-          <div className="statCard-title">{props.cardData.title.name}</div>
+          <h4 className="statCard-title">{props.cardData.title.name}</h4>
           {/*  end of statCard-title */}
 
           <div className="statCard-content">
@@ -45,7 +45,7 @@ const StatCard = props => {
             {/*  end of statCard-headers */}
 
             {/*  start of statCard-content */}
-            <div className="statCard-content">
+            <div className="statCard-data">
               {generateStatCardItems(props.cardData.items)}
             </div>
             {/*  end of statCard-content */}
