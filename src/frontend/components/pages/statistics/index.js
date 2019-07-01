@@ -87,7 +87,7 @@ const Statistics = () => {
             </div>
             <div className="">
               <h2>
-                {blockedLanesSinceStartOfMonth} since the beginning of june.
+                {blockedLanesSinceStartOfMonth} since the beginning of June.
               </h2>
             </div>
           </div>
@@ -100,9 +100,6 @@ const Statistics = () => {
             </div>
             <div className="column">
               <StatCard cardData={biggestChangeCardData} />
-            </div>
-            <div className="column">
-              <StatCard cardData={mostCongestedCardData} />
             </div>
           </div>
         </div>
