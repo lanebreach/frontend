@@ -19,5 +19,8 @@
   "homepage": "https://github.com/lanebreach/frontend#readme",
   "devDependencies": {
     "concurrently": "^4.1.0"
+  },
+  "dependencies": {
+    "mdbreact": "^4.17.0"
   }
 }
