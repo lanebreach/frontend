@@ -1,15 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Moment from "react-moment";
+import moment from "moment";
 
 const Heading = styled.div``;
-
-const Time = styled.div``;
-
+const SubmittedTime = styled.div``;
 const Supervisor_District = styled.div``;
-
 const Neighborhood = styled.div``;
-
+const BikeLaneId = styled.div``;
 const Media = styled.div``;
 
 const Img = styled.img`
@@ -43,33 +41,34 @@ const Details = props => {
   return null;
 };
 
-const IncidentPopup = ({
-  id,
-  time,
-  supervisor_district,
-  neighborhood,
-  details,
-  media
-}) => {
+const IncidentPopup = props => {
+  console.log(props);
+  let time = moment(props.requested_datetime).format("ddd DD/MM/YY h:mm:ss a");
+  let bikeLaneId;
+  if (props.meta_data) {
+    bikeLaneId = JSON.parse(props.meta_data).bikeway_network_id;
+  }
   return (
     <div>
       <Heading>
-        <b>ID:</b> {id}
+        <b>ID:</b> {props.id}
       </Heading>
-      <div>
-        <p style={{ display: "inline" }}>
-          <b>Time: </b>
-        </p>
-        <Moment>{time}</Moment>
-      </div>
+      <SubmittedTime>
+        <b>Submitted at: </b>
+        {time}
+      </SubmittedTime>
       <Supervisor_District>
-        <b>Supervisor District:</b> {supervisor_district}
+        <b>Supervisor District:</b> {props.supervisor_district}
       </Supervisor_District>
       <Neighborhood>
-        <b>Neighborhood:</b> {neighborhood}
+        <b>Neighborhood:</b> {props.neighborhoods_sffind_boundaries}
       </Neighborhood>
-      <Details deets={details} />
-      <MediaElement media_url={media} />
+      <BikeLaneId>
+        <b>Bike Lane ID: </b>
+        {bikeLaneId}
+      </BikeLaneId>
+      <Details deets={props.description} />
+      <MediaElement media_url={props.media_url} />
     </div>
   );
 };

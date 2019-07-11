@@ -67,9 +67,6 @@ export class Statistics extends React.Component {
         monthCount++;
 
         if (desc != null) {
-          if (desc.toLowerCase().includes("uber")) {
-            c++;
-          }
           if (
             desc.toLowerCase().includes("uber") ||
             desc.toLowerCase().includes("lyft")
@@ -90,8 +87,6 @@ export class Statistics extends React.Component {
           }
         }
       }
-
-      // category metrics
     }
 
     console.log(c);

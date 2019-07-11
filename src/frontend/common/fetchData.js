@@ -17,7 +17,7 @@ export async function fetch311() {
         .substring(0, 10)
     ],
     ["end_time", today.toISOString().substring(0, 10)],
-    ["per_page", 5000]
+    ["per_page", 10000]
   ];
 
   var url = base_url;
