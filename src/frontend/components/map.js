@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import IncidentPopup from "./IncidentPopup";
-import axios from "axios"
+import axios from "axios";
 
-const dataFetcher = require('../common/fetchData.js');
+const dataFetcher = require("../common/fetchData.js");
 
-const kMapId = 'mapbox-map';
+const kMapId = "mapbox-map";
 const kMinZoom = 11;
 
 const kMaxBounds = new mapboxgl.LngLatBounds(
@@ -14,7 +14,7 @@ const kMaxBounds = new mapboxgl.LngLatBounds(
 );
 
 export default class Map extends React.Component {
-  constructor () {
+  constructor() {
     super();
     this.state = {
       bike_lane_reports: []
@@ -29,11 +29,11 @@ export default class Map extends React.Component {
     bikeLaneReports.features = bikeLaneReports.features.map(function(d) {
       d.properties.month = new Date(d.properties.time).getMonth();
       return d;
-    })
+    });
 
-    await this.setState({bike_lane_reports: bikeLaneReports})
+    await this.setState({ bike_lane_reports: bikeLaneReports });
     this.initializeMap();
-  }
+  };
 
   initializeMap() {
     mapboxgl.accessToken =
@@ -56,70 +56,52 @@ export default class Map extends React.Component {
     this.map.on(
       "mouseenter",
       "bike-lane-reports-point",
-      () => this.map.getCanvas().style.cursor = "pointer"
+      () => (this.map.getCanvas().style.cursor = "pointer")
     );
 
     this.map.on(
       "mouseleave",
       "bike-lane-reports-point",
-      () => (this.map.getCanvas().style.cursor = ""),
+      () => (this.map.getCanvas().style.cursor = "")
     );
 
     this.map.on("click", "reports-points", e => {
       if (this.map.getZoom() < 14) {
         return;
       }
-
-      this.addPopup(e.features[0])
+      // console.log(e.features[0].properties);
+      this.addPopup(e.features[0]);
     });
   }
 
   buildMapStyle() {
     var map_style = this.map.getStyle();
     map_style.sources.sf311 = {
-      "type": "geojson",
-      "data": this.state.bike_lane_reports
+      type: "geojson",
+      data: this.state.bike_lane_reports
     };
 
     // Uncomment to make data underneath other data.
     // map_style.layers.unshift({
 
     map_style.layers.push({
-      "id": "reports-heatmap",
-      "type": "heatmap",
-      "source": "sf311",
-      "paint": {
+      id: "reports-heatmap",
+      type: "heatmap",
+      source: "sf311",
+      paint: {
         "heatmap-radius": 6,
-        "heatmap-opacity": [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          13, 1,
-          15, 0
-        ],
+        "heatmap-opacity": ["interpolate", ["linear"], ["zoom"], 13, 1, 15, 0]
       }
     });
 
     map_style.layers.push({
-      "id": "reports-points",
-      "type": "circle",
-      "source": "sf311",
-      "paint": {
-        "circle-radius": [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          14, 2,
-          16, 5
-        ],
+      id: "reports-points",
+      type: "circle",
+      source: "sf311",
+      paint: {
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 14, 2, 16, 5],
         "circle-color": "white",
-        "circle-opacity": [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          14, 0,
-          15, 1
-        ],
+        "circle-opacity": ["interpolate", ["linear"], ["zoom"], 14, 0, 15, 1]
       }
     });
 
@@ -127,20 +109,20 @@ export default class Map extends React.Component {
   }
 
   //month is an Integer
-  filterBy(month){
-    var filters = ['==', 'month', month];
+  filterBy(month) {
+    var filters = ["==", "month", month];
     this.map.setFilter("reports-points", filters);
-    this.map.setFilter('reports-heatmap', filters);
+    this.map.setFilter("reports-heatmap", filters);
   }
 
   addPopup(incident) {
-    const { coordinates }  = incident.geometry;
+    const { coordinates } = incident.geometry;
     const placeholder = document.createElement("div");
     ReactDOM.render(<IncidentPopup {...incident.properties} />, placeholder);
 
     const popup_options = {
       closeButton: false,
-      closeOnClick: true,
+      closeOnClick: true
     };
 
     new mapboxgl.Popup(popup_options)
@@ -156,7 +138,7 @@ export default class Map extends React.Component {
       bottom: 0,
       left: 0,
       right: 0,
-      width: "100%",
+      width: "100%"
     };
 
     return <div style={style} id={kMapId} />;
