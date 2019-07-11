@@ -21,6 +21,7 @@
     "concurrently": "^4.1.0"
   },
   "dependencies": {
-    "mdbreact": "^4.17.0"
+    "mdbreact": "^4.17.0",
+    "react-iframe": "^1.8.0"
   }
 }
