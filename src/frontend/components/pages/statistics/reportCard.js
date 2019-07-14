@@ -15,8 +15,8 @@ const ReportCard = props => {
             <div className="reportCard-headers">
               <Iframe
                 url="https://datastudio.google.com/embed/reporting/143a8WOiZiJuYTYUUHscE-Bd-sv-ttk9d/page/mMot"
-                width="800px"
-                height="600px"
+                width="1200px"
+                height="900px"
                 id="dataStudio"
                 frameborder="0"
                 className="dataStudioClass"

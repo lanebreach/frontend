@@ -2,8 +2,12 @@ import React from "react";
 import "../../../styles/grid.css";
 import "../../../styles/components/about.css";
 // Static Images
-const headerImg = require("../../../public/images/lanebreach-about-img.jpg");
+const headerImg = require("../../../public/images/lanebreach11.jpg");
 const appStoreImg = require("../../../public/images/downloadOnAppStore.png");
+const githubIcon = require("../../../public/images/github_icon.png");
+const c4sfIcon = require("../../../public/images/c4sf_icon.jpeg");
+const twitterIcon = require("../../../public/images/twitter_icon.png");
+const emailIcon = require("../../../public/images/bike_email_icon.png");
 
 const About = () => (
   <section component="about">
@@ -12,18 +16,10 @@ const About = () => (
         <div className="intro">
           <div className="row">
             <div className="content-header col">
-              <h1>Lane Breach.</h1>
+              <h1>Lane Breach</h1>
               <div className="content-section">
-                <a href="https://codeforsanfrancisco.org/projects/lane-breach/">
-                  Lane Breach
-                </a>{" "}
-                is a volunteer driven
-                <a href="https://codeforsanfrancisco.org/projects/lane-breach/">
-                  {" "}
-                  codeforsanfrancisco{" "}
-                </a>
-                project supported by{" "}
-                <a href="https://www.codeforamerica.org/">codeforamerica</a>.
+                Lane Breach is a volunteer-driven Code for San Francisco project
+                promoting the just collection and analysis of bike data.
               </div>
             </div>
             <div className="col right" id="intro-img-col">
@@ -57,11 +53,13 @@ const About = () => (
             <div className="row">
               <div className="col">
                 <div className="content-section">
-                  <div className="content-header">Download our app</div>
+                  <div className="content-header">Get involved!</div>
                   <div className="content">
-                    Encourage safety across all of our transit system users
-                    whether it be bikes, cars, buses, pedestrians, trucks, or
-                    any other mode of transit.
+                    Help build a more equitable solution and stay safe wile
+                    doing it! Our iOS app was hand built for bike commuters in
+                    SF. Data you help collect still goes to the city - along
+                    with some information about what categories of blockages are
+                    happening, and what kind of lanes are being blocked.
                   </div>
                 </div>
               </div>
@@ -100,33 +98,56 @@ const About = () => (
                 <div className="col">
                   <div className="content-header">More Information</div>
                   <div className="content">
-                    Want to get involved in the project or provide feedback? As
-                    an open source project we encourage community participation!
+                    Want to get involved in the project? Are we missing
+                    something big? As an open source project we depend on
+                    community participation!
                   </div>
                 </div>
-
                 <div className="col">
                   <div className="row more-info-links">
-                    <div className="col">
+                    <div className="content more-info-tile">
                       <a href="https://github.com/lanebreach">
-                        <div>Github</div>
+                        <img
+                          src={githubIcon}
+                          alt="githubIcon"
+                          width="80"
+                          height="80px;"
+                        />
+                        <p>Github</p>
                       </a>
                     </div>
-                    <div className="col">
+                    <div className="content more-info-tile">
                       <a href="https://codeforsanfrancisco.org/projects/lane-breach/">
-                        <div>Weekly Hack Night</div>
+                        <img
+                          src={c4sfIcon}
+                          alt="code for sf project: lanebreach"
+                          width="80"
+                          height="80px"
+                        />
+                        <p> Weekly Hack Night</p>
                       </a>
                     </div>
-                    <div className="col">
+                    <div className="content more-info-tile">
                       <a href="https://twitter.com/bikelanes_sf">
-                        <div>Twitter</div>
+                        <img
+                          src={twitterIcon}
+                          alt="twitter: @bikelanes_sf"
+                          width="80"
+                          height="80px"
+                        />
+                        <p>Twitter</p>
                       </a>
                     </div>
                   </div>
-                  <div className="content more-info-email">
-                    Email us directly @{" "}
+                  <div className="content more-info-tile">
                     <a href="mailto:bikelanessf@gmail.com">
-                      bikelanessf@gmail.com!
+                      <img
+                        src={emailIcon}
+                        alt="email at bikelanessf@gmail.com"
+                        width="80"
+                        height="80px"
+                      />
+                      <p>bikelanessf@gmail.com</p>
                     </a>
                   </div>
                 </div>

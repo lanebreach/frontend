@@ -178,9 +178,6 @@ export class Statistics extends React.Component {
     const thisMonth = this.state.thisMonth;
     const thisYear = this.state.thisYear;
 
-    const url =
-      "https://datastudio.google.com/embed/reporting/143a8WOiZiJuYTYUUHscE-Bd-sv-ttk9d/page/mMot";
-
     const topBlockersCardData = {
       title: {
         name: "Top Blockers"
@@ -288,19 +285,22 @@ export class Statistics extends React.Component {
           </div>
         </div>
         <div>
-          {/* <Iframe
-            url="https://datastudio.google.com/embed/reporting/143a8WOiZiJuYTYUUHscE-Bd-sv-ttk9d/page/mMot"
-            width="800px"
-            height="600px"
-            id="dataStudio"
-            frameborder="0"
-            className="dataStudioClass"
-            style="border:0"
-            allowfullscreen
-            display="initial"
-            position="relative"
-          /> */}
-          <ReportCard cardData={url} />
+          <div className="columns wrap center-horizontal">
+            <div className="column">
+              <ReportCard
+                cardData={
+                  "https://datastudio.google.com/embed/reporting/143a8WOiZiJuYTYUUHscE-Bd-sv-ttk9d/page/mMot"
+                }
+              />
+            </div>
+            <div className="column">
+              <ReportCard
+                cardData={
+                  "https://datastudio.google.com/embed/reporting/143a8WOiZiJuYTYUUHscE-Bd-sv-ttk9d/page/mMot"
+                }
+              />
+            </div>
+          </div>
         </div>
       </section>
     );
