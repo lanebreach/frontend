@@ -1,8 +1,5 @@
-body {
-  min-width: 800px;
-}
-
 .about-container {
+  min-width: 800px;
   padding: 0 15% 0 8%;
   background-color: #e8ebea;
 }

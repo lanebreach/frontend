@@ -19,7 +19,7 @@
     "react-iframe": "^1.8.0",
     "react-moment": "^0.8.4",
     "react-router-dom": "^5.0.0",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
