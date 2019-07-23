@@ -1,41 +1,58 @@
-.about-container {
-  min-width: 800px;
-  padding: 0 15% 0 8%;
-  background-color: #e8ebea;
+#about {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 767px;
+  margin: auto;
 }
 
-.content-section.brand-green {
-  background-color: #53c183;
-  color: #eff9f3;
+#about section {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: left;
+}
+img {
+  margin: auto;
+}
+#about section a {
+  margin: 12px;
+}
+
+#about section a p {
+  display: inline;
+  margin-left: 10px;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+.about-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #eff9f3;
+  padding: 20px;
 }
 
 .about-container a {
   color: #065a82;
-  font-weight: bold;
 }
 
 /* INTRO */
-
-.content-section.intro-container {
-  padding: 0;
-  height: 450px;
-}
-
 .intro {
   background-color: #eff9f3;
-  height: 300px;
 }
 
 .intro .content-header {
-  margin-top: 110px;
-  margin-left: 50px;
+  /* margin-left: 50px; */
+  margin: auto;
 }
 
-.intro .content-section {
-  font-size: 0.9em;
-  width: 115%;
-  font-style: italic;
-  font-weight: 500;
+col {
+  display: block;
+  width: 100%;
 }
 
 .col.right {
@@ -43,42 +60,29 @@
   justify-content: flex-end;
 }
 
+.appstore {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 @media screen and (max-width: 1200px) {
   #intro-img-col {
     display: none;
   }
-
-  .intro .content-section {
-    width: 90%;
-  }
 }
 
 /* MISSION */
-
-.mission {
-  height: 225px;
-}
 
 .mission .content-header {
   text-align: center;
 }
 
 .mission .content {
-  margin-left: 15%;
-  width: 75%;
-  font-size: 1.25em;
+  margin: auto;
 }
 
 /* DOWNLOAD */
-
-.download {
-  padding: 20px;
-}
-
-.download-info {
-  font-size: 1.25em;
-  font-style: italic;
-}
 
 #app-store-img {
   width: 125px;
@@ -129,14 +133,7 @@
 }
 
 .content-section {
-  padding-top: 2%;
-  padding-bottom: 2%;
   background-color: #eff9f3;
-}
-
-.content-header {
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
 #header-img {
