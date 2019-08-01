@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Landing from "../components/pages/Landing";
 import PageNotFound from "../components/pages/PageNotFound";
-import { Gallery } from "../components/pages/gallery";
 import { About } from "../components/pages/about";
 import { Statistics } from "../components/pages/statistics";
 import AppsPage from "../components/pages/AppsPage";
@@ -11,7 +10,6 @@ const Routes = () => (
   <Switch>
     <Route exact path="/" component={Landing} />
     <Route exact path="/about" component={About} />
-    <Route exact path="/gallery" component={Gallery} />
     <Route exact path="/stats" component={Statistics} />
     <Route exact path="/apps" component={AppsPage} />
     <Route component={PageNotFound} />
