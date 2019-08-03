@@ -18,3 +18,4 @@ RUN npm run-script build
 
 # Comment above and uncomment below to run app.js without debugger port when container launches
 ENTRYPOINT ["node", "--experimental-modules", "dist/server.mjs"]
+EXPOSE 3000
