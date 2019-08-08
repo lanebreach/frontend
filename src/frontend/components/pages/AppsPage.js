@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Nav from "../navigation";
 
 const Main = styled.main`
   display: flex;
@@ -53,6 +54,7 @@ const AppsPage = () => {
         The Web App is a Progressive Web App, which means you can add it to your
         homescreen if you like, or just interact with it in the browser.
       </p>
+      <Nav />
     </Main>
   );
 };

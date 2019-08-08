@@ -1,6 +1,9 @@
 import React from "react";
 import "../../../styles/grid.css";
 import "../../../styles/components/about.css";
+import Nav  from "../../navigation";
+import styled from "styled-components";
+
 // Static Images
 const headerImg = require("../../../public/images/lanebreach11.jpg");
 const appStoreImg = require("../../../public/images/downloadOnAppStore.png");
@@ -9,7 +12,23 @@ const c4sfIcon = require("../../../public/images/c4sf_icon.jpeg");
 const twitterIcon = require("../../../public/images/twitter_icon.png");
 const emailIcon = require("../../../public/images/bike_email_icon.png");
 
+const Padding = styled.div`
+  padding: 20px;
+  canvas {
+    cursor: default;
+  }
+`;
+
+const Title = styled.h1`
+  position: absolute;
+  top: 25px;
+  left: 40px;
+  z-index: 1;
+  color: wheat;
+`;
+
 const About = () => (
+  <Padding>
   <section id="about">
     <h1>Lane Breach</h1>
     <p>
@@ -95,7 +114,9 @@ const About = () => (
     <a href="https://twitter.com/bikelanes_sf">
       <div className="partner-item">Cars out of bike lanes!</div>
     </a>
+    <Nav />
   </section>
+  </Padding>
 );
 
 export { About };
