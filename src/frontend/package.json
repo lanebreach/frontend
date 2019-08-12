@@ -7,7 +7,7 @@
     "build": "webpack --config webpack/frontend.prod.js --mode production"
   },
   "author": "Timothy Shoaf <tim@timshoaf.dev>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
     "d3": "^5.9.2",
