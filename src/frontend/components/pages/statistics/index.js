@@ -7,45 +7,45 @@ import "../../../styles/grid.css";
 import "../../../styles/components/statistics.css";
 import { func } from "prop-types";
 
-const Padding = styled.div`
-  padding: 20px;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
+
+const FrameContainer = styled.div`
+  flex: 1 0 auto;
   canvas {
     cursor: default;
   }
 `;
 
 const Title = styled.h1`
-  position: absolute;
-  top: 25px;
-  left: 40px;
-  z-index: 1;
   color: wheat;
+  margin: 10px 13px;
 `;
 
+
 const Statistics = () => (
-  <Padding>
-  <Title> Bike Data Explorer </Title>
-  <section id="about">
-    <p>
-      Placeholder page that will eventually display reports, etc
-    </p>
-    <p className="content">
-    <Iframe
-      url="https://datastudio.google.com/embed/reporting/143a8WOiZiJuYTYUUHscE-Bd-sv-ttk9d/page/mMot"
-      width="1200px"
-      height="900px"
-      id="dataStudio"
-      frameborder="0"
-      className="dataStudioClass"
-      style="border:0"
-      allowfullscreen
-      display="initial"
-      position="relative"
-    />
-    </p>
-    <Nav />
-    </section>
-    </Padding>
+  <Container>
+    <Title>Bike Data Explorer</Title>
+    <FrameContainer>
+      <Iframe
+        url="https://datastudio.google.com/embed/reporting/143a8WOiZiJuYTYUUHscE-Bd-sv-ttk9d/page/mMot"
+        id="dataStudio"
+        frameBorder="0"
+        className="dataStudioClass"
+        width="100%"
+        height="100%"
+        allowfullscreen
+        display="block"
+        styles={{borderWidth: 0, display: "block"}}
+      />
+    </FrameContainer>
+    <div style={{marginLeft: "20px"}}>
+      <Nav />
+    </div>
+  </Container>
 );
 
 export { Statistics };
