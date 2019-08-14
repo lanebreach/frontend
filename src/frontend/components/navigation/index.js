@@ -1,17 +1,17 @@
 import * as React from "react";
-import styled, {createGlobalStyle} from 'styled-components'
+import styled, { createGlobalStyle } from "styled-components";
 import { Link } from "react-router-dom";
 import "../../styles/navigation.css";
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    background: black;
-    color: white;
-  }
-`
+// const GlobalStyle = createGlobalStyle`
+//   body {
+//     margin: 0;
+//     background: black;
+//     color: white;
+//   }
+// `
 
-  const NavContainer = styled.div`
+const NavContainer = styled.div`
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-start;
@@ -35,14 +35,14 @@ const GlobalStyle = createGlobalStyle`
       border: none;
     }
     nav{
-      display: ${props=> props.open? "flex": "none"};
+      display: ${props => (props.open ? "flex" : "none")};
       flex-direction: column;
       padding: 30px;
       background: black;
       border: 1px solid white;
       color: black;console.log(JSON.stringify())
     }
-`
+`;
 
 const style = {
   position: "relative",
@@ -61,11 +61,13 @@ const AboutLink = () => {
   );
 };
 
-const AppsLink = ()=>{
-  return <Link style={style} to="/apps">
-    <h4>Apps</h4>
-  </Link>
-}
+const AppsLink = () => {
+  return (
+    <Link style={style} to="/apps">
+      <h4>Apps</h4>
+    </Link>
+  );
+};
 
 const StatsLink = () => {
   return (
@@ -86,20 +88,39 @@ const HomeLink = () => {
 const Nav = () => {
   const [open, setOpen] = React.useState(false);
 
-  return <NavContainer open={open}>
-    <GlobalStyle/>
-    <button tabIndex={1} aria-expanded={open} aria-controls="main-navigation"  onClick={
-        ()=>setOpen(!open)
-      }>
-      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="bars" className="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg>
-    </button>
+  return (
+    <NavContainer open={open}>
+      {/* <GlobalStyle /> */}
+      <button
+        tabIndex={1}
+        aria-expanded={open}
+        aria-controls="main-navigation"
+        onClick={() => setOpen(!open)}
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          data-prefix="far"
+          data-icon="bars"
+          className="svg-inline--fa fa-bars fa-w-14"
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+        >
+          <path
+            fill="currentColor"
+            d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"
+          />
+        </svg>
+      </button>
       <nav id="main-navigation">
         <HomeLink />
         <AboutLink />
         <StatsLink />
-        <AppsLink/>
+        <AppsLink />
       </nav>
-  </NavContainer>
-}
+    </NavContainer>
+  );
+};
 
 export default Nav;

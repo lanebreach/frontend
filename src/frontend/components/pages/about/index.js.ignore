@@ -1,0 +1,954 @@
+import React from "react";
+import "../../../styles/grid.css";
+import "../../../styles/components/about.css";
+import Nav from "../../navigation";
+import styled from "styled-components";
+
+import {
+  Button,
+  Container,
+  Grid,
+  Header,
+  Icon,
+  Image,
+  Item,
+  Label,
+  Menu,
+  Segment,
+  Step,
+  Table
+} from "semantic-ui-react";
+
+// Static Images
+const headerImg = require("../../../public/images/lanebreach11.jpg");
+const appStoreImg = require("../../../public/images/downloadOnAppStore.png");
+const githubIcon = require("../../../public/images/github_icon.png");
+const c4sfIcon = require("../../../public/images/c4sf_icon.jpeg");
+const twitterIcon = require("../../../public/images/twitter_icon.png");
+const emailIcon = require("../../../public/images/bike_email_icon.png");
+
+const Padding = styled.div`
+  padding: 20px;
+  canvas {
+    cursor: default;
+  }
+`;
+
+const Inner = styled.section`
+  padding: 100px;
+  canvas {
+    cursor: default;
+  }
+`;
+
+const Title = styled.h1`
+  position: relative;
+  top: 25px;
+  left: 40px;
+  z-index: 1;
+  color: wheat;
+`;
+
+const Paragraph = styled.p`
+  position: relative;
+`;
+
+const style = {
+  h1: {
+    marginTop: "3em"
+  },
+  h2: {
+    margin: "4em 0em 2em"
+  },
+  h3: {
+    marginTop: "2em",
+    padding: "2em 0em"
+  },
+  last: {
+    marginBottom: "300px"
+  }
+};
+
+const About = () => (
+  <Padding>
+    <Title>Lane Breach</Title>
+    <Grid columns={3} doubling>
+      <Grid.Column>
+        <Segment>
+          Lane Breach is an open-source, volunteer-driven Code for San Francisco
+          project promoting the just collection and analysis of bike data.
+        </Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      {/* <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column> */}
+      {/* <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment>Content</Segment>
+      </Grid.Column> */}
+    </Grid>
+    <Inner>
+      <section id="about">
+        <Paragraph />
+        <p className="content">
+          Our mission is to help the city of San Francisco achieve
+          transportation justice - with bikes!
+          <a href="https://www.visionzerosf.org/"> Vision Zero</a> goal, which
+          ensures all our transit users can enjoy safe and efficient mobility.
+          We are doing so by augmenting the city’s
+          <a href="https://data.sfgov.org/City-Infrastructure/Blocked-Bike-Lanes-and-Double-Parking/ihm3-5gmc">
+            {" "}
+            existing 311 bike lane blocking dataset.
+          </a>
+        </p>
+        <h2>Mission</h2>
+        Lane Breach promotes the bicycle as a means of acheiving transportation
+        justice in the City of San Francisco.
+        <h2>Projects</h2>
+        <h2>Get involved!</h2>
+        <p className="content">
+          Help build a more equitable solution and stay safe wile doing it! Our
+          iOS app was hand built for bike commuters in SF. Data you help collect
+          still goes to the city - along with some information about what
+          categories of blockages are happening, and what kind of lanes are
+          being blocked.
+        </p>
+        <a href="https://itunes.apple.com/us/app/lane-breach/id1447775781?mt=8">
+          <img className="center" id="app-store-img" src={appStoreImg} />
+        </a>
+        <p>Improved 311 report submission experience for bike lane users.</p>
+        <p>
+          Make bike lane users and surrounding motorists SAFER during the
+          submission process.
+        </p>
+        <p>Add additional data about the type of bike lane obstruction.</p>
+        <p>
+          Want to get involved in the project? Are we missing something big? As
+          an open source project we depend on community participation!
+        </p>
+        <section>
+          <a href="https://github.com/lanebreach">
+            <img src={githubIcon} alt="githubIcon" width="80" height="80px;" />
+            <p>Github</p>
+          </a>
+          <a href="https://codeforsanfrancisco.org/projects/lane-breach/">
+            <img
+              src={c4sfIcon}
+              alt="code for sf project: lanebreach"
+              width="80"
+              height="80px"
+            />
+            <p> Weekly Hack Night</p>
+          </a>
+          <a href="https://twitter.com/bikelanes_sf">
+            <img
+              src={twitterIcon}
+              alt="twitter: @bikelanes_sf"
+              width="80"
+              height="80px"
+            />
+            <p>Twitter</p>
+          </a>
+          <a href="mailto:bikelanessf@gmail.com">
+            <img
+              src={emailIcon}
+              alt="email at bikelanessf@gmail.com"
+              width="80"
+              height="80px"
+            />
+            <p>bikelanessf@gmail.com</p>
+          </a>
+        </section>
+        <h2>Our Partners</h2>
+        <a href="https://brigade.codeforamerica.org/brigades/Code-for-San-Francisco/">
+          <div className="partner-item">Code For America: SF Brigade</div>
+        </a>
+        <a href="https://twitter.com/EverySF311Bike">
+          <div className="partner-item">Every Blocked Bike Lane Report SF</div>
+        </a>
+        <a href="https://twitter.com/EverySF311Bike">
+          <div className="partner-item">Every Blocked Bike Lane Report SF</div>
+        </a>
+        <a href="https://twitter.com/bikelanes_sf">
+          <div className="partner-item">Cars out of bike lanes!</div>
+        </a>
+      </section>
+    </Inner>
+    <Nav />
+  </Padding>
+);
+
+export { About };
+
+// import React from "react";
+// import {
+//   Button,
+//   Container,
+//   Grid,
+//   Header,
+//   Icon,
+//   Image,
+//   Item,
+//   Label,
+//   Menu,
+//   Segment,
+//   Step,
+//   Table
+// } from "semantic-ui-react";
+
+// const style = {
+//   h1: {
+//     marginTop: "3em"
+//   },
+//   h2: {
+//     margin: "4em 0em 2em"
+//   },
+//   h3: {
+//     marginTop: "2em",
+//     padding: "2em 0em"
+//   },
+//   last: {
+//     marginBottom: "300px"
+//   }
+// };
+
+// const About = () => (
+//   <div>
+//     <Header
+//       as="h1"
+//       content="Responsive UI Examples"
+//       style={style.h1}
+//       textAlign="center"
+//     />
+//     <Header
+//       as="h2"
+//       content="Basic Responsive"
+//       style={style.h2}
+//       textAlign="center"
+//     />
+
+// <Header as="h3" textAlign="center" style={style.h3} content="Container" />
+// <Container>
+//   <Segment.Group>
+//     <Segment>Content</Segment>
+//     <Segment>Content</Segment>
+//     <Segment>Content</Segment>
+//     <Segment>Content</Segment>
+//   </Segment.Group>
+// </Container>
+
+//     <Header
+//       as="h3"
+//       content="Text Container"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Container text>
+//       <Segment.Group>
+//         <Segment>Content</Segment>
+//         <Segment>Content</Segment>
+//         <Segment>Content</Segment>
+//         <Segment>Content</Segment>
+//       </Segment.Group>
+//     </Container>
+
+//     <Header
+//       as="h3"
+//       content="Stackable Grid"
+//       textAlign="center"
+//       style={style.h3}
+//     />
+//     <Grid columns={2} stackable>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Row columns={3}>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//       </Grid.Row>
+//       <Grid.Column width={10}>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column width={6}>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//     </Grid>
+
+// <Header
+//   as="h3"
+//   content="Doubling Grid"
+//   style={style.h3}
+//   textAlign="center"
+// />
+// <Grid columns={3} doubling>
+//   <Grid.Column>
+//     <Segment>Content</Segment>
+//   </Grid.Column>
+//   <Grid.Column>
+//     <Segment>Content</Segment>
+//   </Grid.Column>
+//   <Grid.Column>
+//     <Segment>Content</Segment>
+//   </Grid.Column>
+//   <Grid.Column>
+//     <Segment>Content</Segment>
+//   </Grid.Column>
+//   <Grid.Column>
+//     <Segment>Content</Segment>
+//   </Grid.Column>
+//   <Grid.Column>
+//     <Segment>Content</Segment>
+//   </Grid.Column>
+// </Grid>
+
+//     <Header
+//       as="h3"
+//       content="Doubling Stackable Grid"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Grid columns={3} doubling stackable>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//     </Grid>
+
+//     <Header
+//       as="h3"
+//       content="Nested Stackable Grid"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Grid columns={2}>
+//       <Grid.Column>
+//         <Grid columns={2} doubling stackable>
+//           <Grid.Column>
+//             <Segment>Content</Segment>
+//           </Grid.Column>
+//           <Grid.Column>
+//             <Segment>Content</Segment>
+//           </Grid.Column>
+//         </Grid>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Grid columns={3} doubling stackable>
+//           <Grid.Column>
+//             <Segment>Content</Segment>
+//           </Grid.Column>
+//           <Grid.Column>
+//             <Segment>Content</Segment>
+//           </Grid.Column>
+//           <Grid.Column>
+//             <Segment>Content</Segment>
+//           </Grid.Column>
+//         </Grid>
+//       </Grid.Column>
+//     </Grid>
+
+//     <Header
+//       as="h3"
+//       content="Stackable Grid Container"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Grid container columns={2} stackable>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//     </Grid>
+
+//     <Header
+//       as="h3"
+//       content="Doubling Grid Container"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Grid container columns={3} doubling>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//     </Grid>
+
+//     <Header
+//       as="h3"
+//       content="Doubling Stackable Grid Container"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Grid container columns={3} doubling stackable>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//     </Grid>
+
+//     <Header
+//       as="h2"
+//       content="Device Adjustment"
+//       style={style.h2}
+//       textAlign="center"
+//     />
+
+//     <Header
+//       as="h3"
+//       content="Device Column Width"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Grid>
+//       <Grid.Column computer={3} mobile={6} tablet={9}>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column width={4}>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column computer={9} mobile={6} tablet={3}>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column computer={9} mobile={6} tablet={3}>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column width={4}>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column computer={3} mobile={6} tablet={9}>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//     </Grid>
+
+//     <Header
+//       as="h3"
+//       content="Device Visibility"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Grid columns={4}>
+//       <Grid.Column only="widescreen" widescreen={10}>
+//         <Segment>Widescreen</Segment>
+//       </Grid.Column>
+//       <Grid.Column only="widescreen" widescreen={6}>
+//         <Segment>Widescreen</Segment>
+//       </Grid.Column>
+//       <Grid.Column only="large screen" largeScreen={6}>
+//         <Segment>Large Screen</Segment>
+//       </Grid.Column>
+//       <Grid.Column only="large screen" largeScreen={10}>
+//         <Segment>Large Screen</Segment>
+//       </Grid.Column>
+//       <Grid.Column only="mobile tablet" mobile={8} tablet={8}>
+//         <Segment>Tablet and Mobile</Segment>
+//       </Grid.Column>
+//       <Grid.Column only="mobile tablet" mobile={8} tablet={8}>
+//         <Segment>Tablet and Mobile</Segment>
+//       </Grid.Column>
+//       <Grid.Column only="mobile" mobile={16}>
+//         <Segment>Mobile</Segment>
+//       </Grid.Column>
+//       <Grid.Row only="computer" columns={2}>
+//         <Grid.Column>
+//           <Segment>Computer and Up</Segment>
+//         </Grid.Column>
+//         <Grid.Column>
+//           <Segment>Computer and Up</Segment>
+//         </Grid.Column>
+//       </Grid.Row>
+//       <Grid.Column only="tablet">
+//         <Segment>Tablet Only Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column only="tablet">
+//         <Segment>Tablet Only Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column only="tablet">
+//         <Segment>Tablet Only Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column only="tablet">
+//         <Segment>Tablet Only Content</Segment>
+//       </Grid.Column>
+//     </Grid>
+
+//     <Header
+//       as="h2"
+//       content="Responsive Grid with Variations"
+//       style={style.h2}
+//       textAlign="center"
+//     />
+
+//     <Header
+//       as="h3"
+//       content="Stackable Divided Grid"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Grid columns={2} container divided stackable>
+//       <Grid.Row>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//       </Grid.Row>
+//       <Grid.Row>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//       </Grid.Row>
+//       <Grid.Row>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//       </Grid.Row>
+//     </Grid>
+
+//     <Header
+//       as="h3"
+//       content="Stackable Vertically Divided Grid"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Grid columns={2} container divided="vertically" stackable>
+//       <Grid.Row>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//       </Grid.Row>
+//       <Grid.Row>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//       </Grid.Row>
+//       <Grid.Row>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//       </Grid.Row>
+//     </Grid>
+
+//     <Header
+//       as="h3"
+//       content="Celled Stackable Grid"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Grid celled container stackable>
+//       <Grid.Row columns={2}>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//       </Grid.Row>
+//       <Grid.Row columns={3}>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//       </Grid.Row>
+//       <Grid.Row columns={2}>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//         <Grid.Column>
+//           <Segment>Content</Segment>
+//         </Grid.Column>
+//       </Grid.Row>
+//     </Grid>
+
+//     <Header
+//       as="h3"
+//       content="Consecutive Doubling Stackable Grid"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Grid columns={3} container doubling stackable>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//     </Grid>
+//     <Grid columns={3} container doubling stackable>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//     </Grid>
+
+//     <Header
+//       as="h3"
+//       content="Grid Container"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Grid columns={3} container>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//     </Grid>
+
+//     <Header
+//       as="h1"
+//       content="Responsive Elements"
+//       style={style.h1}
+//       textAlign="center"
+//     />
+
+//     <Header
+//       as="h3"
+//       content="Responsive Vertical Divider"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Grid container columns={2} divided relaxed stackable>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//       <Grid.Column>
+//         <Segment>Content</Segment>
+//       </Grid.Column>
+//     </Grid>
+
+//     <Header
+//       as="h3"
+//       content="Responsive Table"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Container>
+//       <Table celled>
+//         <Table.Header>
+//           <Table.Row>
+//             <Table.HeaderCell>Employee</Table.HeaderCell>
+//             <Table.HeaderCell>Correct Guesses</Table.HeaderCell>
+//           </Table.Row>
+//         </Table.Header>
+
+//         <Table.Body>
+//           <Table.Row>
+//             <Table.Cell>
+//               <Header as="h4" image>
+//                 <Image
+//                   rounded
+//                   size="mini"
+//                   src="/images/wireframe/square-image.png"
+//                 />
+//                 <Header.Content>
+//                   Lena
+//                   <Header.Subheader>Human Resources</Header.Subheader>
+//                 </Header.Content>
+//               </Header>
+//             </Table.Cell>
+//             <Table.Cell>22</Table.Cell>
+//           </Table.Row>
+//           <Table.Row>
+//             <Table.Cell>
+//               <Header as="h4" image>
+//                 <Image
+//                   rounded
+//                   size="mini"
+//                   src="/images/wireframe/square-image.png"
+//                 />
+//                 <Header.Content>
+//                   Matthew
+//                   <Header.Subheader>Fabric Design</Header.Subheader>
+//                 </Header.Content>
+//               </Header>
+//             </Table.Cell>
+//             <Table.Cell>15</Table.Cell>
+//           </Table.Row>
+//           <Table.Row>
+//             <Table.Cell>
+//               <Header as="h4" image>
+//                 <Image
+//                   rounded
+//                   size="mini"
+//                   src="/images/wireframe/square-image.png"
+//                 />
+//                 <Header.Content>
+//                   Lindsay
+//                   <Header.Subheader>Entertainment</Header.Subheader>
+//                 </Header.Content>
+//               </Header>
+//             </Table.Cell>
+//             <Table.Cell>12</Table.Cell>
+//           </Table.Row>
+//           <Table.Row>
+//             <Table.Cell>
+//               <Header as="h4" image>
+//                 <Image
+//                   rounded
+//                   size="mini"
+//                   src="/images/wireframe/square-image.png"
+//                 />
+//                 <Header.Content>
+//                   Mark
+//                   <Header.Subheader>Executive</Header.Subheader>
+//                 </Header.Content>
+//               </Header>
+//             </Table.Cell>
+//             <Table.Cell>11</Table.Cell>
+//           </Table.Row>
+//         </Table.Body>
+//       </Table>
+//     </Container>
+
+//     <Header
+//       as="h3"
+//       content="Responsive Menu"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Container>
+//       <Menu stackable>
+//         <Menu.Item>
+//           <img src="/logo.png" />
+//         </Menu.Item>
+//         <Menu.Item>Features</Menu.Item>
+//         <Menu.Item>Testimonials</Menu.Item>
+//         <Menu.Item>Sign-in</Menu.Item>
+//       </Menu>
+//     </Container>
+
+//     <Header
+//       as="h3"
+//       content="Responsive Item"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+//     <Container>
+//       <Item.Group divided>
+//         <Item>
+//           <Item.Image src="/images/wireframe/image.png" />
+//           <Item.Content>
+//             <Item.Header as="a">Content Header</Item.Header>
+//             <Item.Meta>
+//               <span>Date</span>
+//               <span>Category</span>
+//             </Item.Meta>
+//             <Item.Description>
+//               A description which may flow for several lines and give context to
+//               the content.
+//             </Item.Description>
+//             <Item.Extra>
+//               <Image avatar circular src="/images/wireframe/square-image.png" />
+//               Username
+//             </Item.Extra>
+//           </Item.Content>
+//         </Item>
+
+//         <Item>
+//           <Item.Image src="/images/wireframe/image.png" />
+//           <Item.Content>
+//             <Item.Header as="a">Content Header</Item.Header>
+//             <Item.Meta>
+//               <span>Date</span>
+//               <span>Category</span>
+//             </Item.Meta>
+//             <Item.Description>
+//               A description which may flow for several lines and give context to
+//               the content.
+//             </Item.Description>
+//             <Item.Extra>
+//               <Button floated="right" primary>
+//                 Primary
+//                 <Icon name="chevron right" />
+//               </Button>
+//               <Label>Limited</Label>
+//             </Item.Extra>
+//           </Item.Content>
+//         </Item>
+//         <Item>
+//           <Item.Image src="/images/wireframe/image.png" />
+//           <Item.Content>
+//             <Item.Header as="a">Content Header</Item.Header>
+//             <Item.Meta>
+//               <span>Date</span>
+//               <span>Category</span>
+//             </Item.Meta>
+//             <Item.Description>
+//               A description which may flow for several lines and give context to
+//               the content.
+//             </Item.Description>
+//             <Item.Extra>
+//               <Button primary floated="right">
+//                 Primary
+//                 <Icon name="chevron right" />
+//               </Button>
+//             </Item.Extra>
+//           </Item.Content>
+//         </Item>
+//       </Item.Group>
+//     </Container>
+
+//     <Header
+//       as="h3"
+//       content="Responsive Steps"
+//       style={style.h3}
+//       textAlign="center"
+//     />
+
+//     <Container style={style.last}>
+//       <Step.Group fluid>
+//         <Step
+//           icon="plane"
+//           title="Shipping"
+//           description="Choose your shipping options"
+//         />
+//         <Step
+//           active
+//           icon="dollar"
+//           title="Billing"
+//           description="Enter billing information"
+//         />
+//         <Step
+//           disabled
+//           icon="info circle"
+//           title="Confirm Order"
+//           description="Verify order details"
+//         />
+//       </Step.Group>
+//     </Container>
+//   </div>
+// );
+
+// export { About };

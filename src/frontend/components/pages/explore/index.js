@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { Tweet, Timeline } from "react-twitter-widgets";
+import Iframe from "react-iframe";
 import {
   Button,
   Container,
@@ -28,42 +28,18 @@ const getWidth = () => {
 };
 
 /* eslint-disable react/no-multi-comp */
-/* Heads up! AboutPageHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
+/* Heads up! ExplorePageHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
  * such things.
  */
-const AboutPageHeading = ({ mobile }) => (
-  <Container text>
-    <Header
-      as="h1"
-      content="Lane Breach"
-      inverted
-      style={{
-        fontSize: mobile ? "2em" : "4em",
-        fontWeight: "normal",
-        marginBottom: 0,
-        marginTop: mobile ? "1.5em" : "3em"
-      }}
-    />
-    <Header
-      as="h2"
-      content="data + community"
-      inverted
-      style={{
-        fontSize: mobile ? "1.5em" : "1.7em",
-        fontWeight: "normal",
-        marginTop: mobile ? "0.5em" : "1.5em"
-      }}
-    />
-    <Button primary size="huge">
-      Get Started
-      <Icon name="right arrow" />
-    </Button>
-  </Container>
-);
+// const ExplorePageHeading = ({ mobile }) => (
+//   <Container text>
+//     {/* <Image src="https://codeforsanfrancisco.org/img/uploads/screen-shot-2019-01-23-at-10.12.33-pm.png" /> */}
+//   </Container>
+// );
 
-AboutPageHeading.propTypes = {
-  mobile: PropTypes.bool
-};
+// ExplorePageHeading.propTypes = {
+//   mobile: PropTypes.bool
+// };
 
 /* Heads up!
  * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
@@ -89,7 +65,7 @@ class DesktopContainer extends Component {
           <Segment
             inverted
             textAlign="center"
-            style={{ minHeight: 700, padding: "1em 0em" }}
+            style={{ minHeight: 50, padding: "1em 0em" }}
             vertical
           >
             <Menu
@@ -103,10 +79,10 @@ class DesktopContainer extends Component {
                 <Menu.Item as="a" href="/">
                   Home
                 </Menu.Item>
-                <Menu.Item as="a" href="/about" active>
+                <Menu.Item as="a" href="/about">
                   About
                 </Menu.Item>
-                <Menu.Item as="a" href="/explore">
+                <Menu.Item as="a" href="/explore" active>
                   Explore
                 </Menu.Item>
                 <Dropdown item text="Apps">
@@ -124,7 +100,7 @@ class DesktopContainer extends Component {
                 </Dropdown>
               </Container>
             </Menu>
-            <AboutPageHeading />
+            {/* <ExplorePageHeading /> */}
           </Segment>
         </Visibility>
 
@@ -166,10 +142,10 @@ class MobileContainer extends Component {
           <Menu.Item as="a" href="/">
             Home
           </Menu.Item>
-          <Menu.Item as="a" href="/about" active>
+          <Menu.Item as="a" href="/about">
             About
           </Menu.Item>
-          <Menu.Item as="a" href="/explore">
+          <Menu.Item as="a" href="/explore" active>
             Explore
           </Menu.Item>
           <Menu.Item
@@ -187,7 +163,7 @@ class MobileContainer extends Component {
           <Segment
             inverted
             textAlign="center"
-            style={{ minHeight: 350, padding: "1em 0em" }}
+            style={{ minHeight: 40, padding: "1em 0em" }}
             vertical
           >
             <Container>
@@ -197,7 +173,7 @@ class MobileContainer extends Component {
                 </Menu.Item>
               </Menu>
             </Container>
-            <AboutPageHeading mobile />
+            {/* <ExplorePageHeading mobile /> */}
           </Segment>
 
           {children}
@@ -222,91 +198,21 @@ ResponsiveContainer.propTypes = {
   children: PropTypes.node
 };
 
-const About = () => (
+const Explore = () => (
   <ResponsiveContainer>
-    <Segment style={{ padding: "8em 0em" }} vertical>
-      <Grid container stackable verticalAlign="middle">
-        <Grid.Row>
-          <Grid.Column width={8}>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              Bike infrastructure is about transportation justice
-            </Header>
-            <p style={{ fontSize: "1.33em" }}>
-              Let's work together to make sure the city we're building together
-              helps all people.
-            </p>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              Results are only as good as the data they're based on
-            </Header>
-            <p style={{ fontSize: "1.33em" }}>
-              A vast majority of San Francisco's data collection efforts take
-              place downtown. Many neighborhoods are left out of consideration
-              before the conversation even begins. We can fix this - together.
-            </p>
-          </Grid.Column>
-          <Grid.Column floated="right" width={6}>
-            <Image
-              bordered
-              rounded
-              size="large"
-              src="/images/wireframe/white-image.png"
-            />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column textAlign="center">
-            <Button size="huge" href="/apps">
-              Get the App
-            </Button>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
-    <Segment style={{ padding: "0em" }} vertical>
-      <Grid celled="internally" columns="equal" stackable>
-        <Grid.Row textAlign="center">
-          <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              Be a part of the solution
-            </Header>
-            <Tweet tweetId="1151774554445926400" />
-          </Grid.Column>
-          <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              Join the Conversation
-            </Header>
-            <Timeline
-              dataSource={{
-                sourceType: "profile",
-                screenName: "bikelanes_sf"
-              }}
-              options={{
-                username: "bikelanes_sf",
-                height: "800"
-              }}
-            />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
-    <Segment style={{ padding: "8em 0em" }} vertical>
-      <Container text>
-        <Header as="h3" style={{ fontSize: "2em" }}>
-          Helping San Francisco Achieve Vision Zero
-        </Header>
-        <p style={{ fontSize: "1.33em" }}>
-          In 2014, SF set a goal of elimintating traffic fatalities by 2024.
-          Here's some things we're doing to help.
-        </p>
-        <Button
-          as="a"
-          size="large"
-          href="https://www.visionzerosf.org/about/what-is-vision-zero/"
-        >
-          Read More
-        </Button>
-      </Container>
-    </Segment>
+    <Iframe
+      float="right"
+      url="https://datastudio.google.com/embed/reporting/143a8WOiZiJuYTYUUHscE-Bd-sv-ttk9d/page/mMot"
+      width="1200px"
+      height="900px"
+      id="dataStudio"
+      frameborder="0"
+      className="dataStudioClass"
+      style="border:0"
+      allowfullscreen
+      display="initial"
+      position="relative"
+    />
     <Segment inverted vertical style={{ padding: "5em 0em" }}>
       <Container>
         <Grid divided inverted stackable>
@@ -344,4 +250,4 @@ const About = () => (
     </Segment>
   </ResponsiveContainer>
 );
-export { About };
+export { Explore };

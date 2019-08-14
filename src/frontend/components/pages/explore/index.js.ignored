@@ -1,0 +1,63 @@
+import React from "react";
+import Nav from "../../navigation";
+import Iframe from "react-iframe";
+import styled from "styled-components";
+
+import "../../../styles/grid.css";
+import "../../../styles/components/statistics.css";
+import { func } from "prop-types";
+
+const Padding = styled.div`
+  padding: 20px;
+  canvas {
+    cursor: default;
+  }
+`;
+
+const Title = styled.h1`
+  position: absolute;
+  top: 25px;
+  left: 40px;
+  z-index: 1;
+  color: wheat;
+`;
+
+const Inner = styled.div`
+  padding: 100px;
+  canvas {
+    cursor: default;
+  }
+`;
+
+const style = {
+  position: "relative",
+  float: "right",
+  paddingRight: "20px",
+  zIndex: 1,
+  color: "wheat",
+  cursor: "pointer"
+};
+
+const Statistics = () => (
+  <Padding>
+    <Title> Bike Data Explorer </Title>
+    <Inner>
+      <Iframe
+        float="right"
+        url="https://datastudio.google.com/embed/reporting/143a8WOiZiJuYTYUUHscE-Bd-sv-ttk9d/page/mMot"
+        width="1200px"
+        height="900px"
+        id="dataStudio"
+        frameborder="0"
+        className="dataStudioClass"
+        style="border:0"
+        allowfullscreen
+        display="initial"
+        position="relative"
+      />
+    </Inner>
+    <Nav />
+  </Padding>
+);
+
+export { Statistics };

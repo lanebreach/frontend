@@ -3,6 +3,13 @@ import ReactDOM from "react-dom";
 import IncidentPopup from "./IncidentPopup";
 import axios from "axios";
 
+// import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
+
+// const Map = ReactMapboxGl({
+//   accessToken:
+//     "pk.eyJ1IjoiYWdhZXNzZXIiLCJhIjoiY2pvZGY5bmh4MWJtcTNsbWtmN2RmNnhiNCJ9.iwOotv1u0S92o-Vj2CCjag"
+// });
+
 const dataFetcher = require("../common/fetchData.js");
 
 const kMapId = "mapbox-map";
@@ -133,7 +140,7 @@ export default class Map extends React.Component {
 
   render() {
     const style = {
-      position: "absolute",
+      position: "fixed",
       top: 0,
       bottom: 0,
       left: 0,
