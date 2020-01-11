@@ -1,5 +1,7 @@
 # LaneBreach Front-end
 
+# NOTE: Work on this project has been paused in favor of using a templated solution. We'll revisit this decision at some point in 2020.
+
 This repository contains the front-end application for viewing the data for the
 lane-breach application.
 
